@@ -1,0 +1,2619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Web Development Course | AI Learning Platform</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0b0b18;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    height:70px;
+    padding:0 30px;
+    background:rgba(17,17,35,.95);
+    border-bottom:1px solid #29294a;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#06b6d4;
+}
+
+.header-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.header-btn{
+    text-decoration:none;
+    padding:10px 16px;
+    border-radius:9px;
+
+    color:#fff;
+    border:1px solid #3a3a5d;
+    background:#1c1c32;
+
+    transition:.3s;
+    font-size:14px;
+}
+
+.header-btn:hover{
+    background:#0891b2;
+    border-color:#0891b2;
+    transform:translateY(-2px);
+}
+
+/* ================= LAYOUT ================= */
+
+.course-layout{
+    display:grid;
+    grid-template-columns:310px 1fr;
+    min-height:calc(100vh - 70px);
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    background:#111122;
+    border-right:1px solid #29294a;
+
+    padding:25px 18px;
+
+    position:sticky;
+    top:70px;
+
+    height:calc(100vh - 70px);
+
+    overflow-y:auto;
+}
+
+.sidebar h2{
+    font-size:21px;
+    margin-bottom:7px;
+}
+
+.sidebar-subtitle{
+    color:#9999b2;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-container{
+    background:#1c1c32;
+    border:1px solid #30304d;
+
+    border-radius:12px;
+    padding:15px;
+
+    margin-bottom:22px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:9px;
+
+    font-size:13px;
+}
+
+.progress-percent{
+    color:#22d3ee;
+    font-weight:bold;
+}
+
+.progress-bar{
+    width:100%;
+    height:8px;
+
+    background:#292940;
+
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #0891b2,
+        #22d3ee
+    );
+
+    border-radius:10px;
+
+    transition:width .4s ease;
+}
+
+/* ================= LESSON LIST ================= */
+
+.lesson-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.lesson{
+    width:100%;
+    min-height:48px;
+
+    padding:13px 14px;
+    margin-bottom:9px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:#d8d8df;
+
+    background:#22223b;
+
+    border:1px solid #30304c;
+
+    display:flex;
+    align-items:center;
+
+    transition:.2s ease;
+
+    font-size:14px;
+    font-weight:500;
+}
+
+.lesson:hover{
+    background:#2c2c4a;
+    border-color:#06b6d4;
+    transform:translateX(3px);
+}
+
+.lesson.active{
+    background:#0891b2;
+    color:white;
+    border-color:#0891b2;
+}
+
+.lesson.completed{
+    background:#22223b;
+    color:#d8d8df;
+    border:1px solid #2ecc71;
+}
+
+.lesson.active.completed{
+    background:#0891b2;
+    color:white;
+    border-color:#0891b2;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    padding:40px;
+
+    max-width:1000px;
+    width:100%;
+
+    margin:auto;
+}
+
+.course-heading{
+    margin-bottom:30px;
+}
+
+.course-heading .tag{
+    display:inline-block;
+
+    padding:7px 12px;
+
+    background:rgba(6,182,212,.12);
+
+    color:#67e8f9;
+
+    border:1px solid rgba(6,182,212,.4);
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    margin-bottom:14px;
+}
+
+.course-heading h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.course-heading p{
+    color:#a4a4bb;
+    line-height:1.7;
+}
+
+/* ================= LESSON CARD ================= */
+
+.lesson-card{
+    background:linear-gradient(
+        145deg,
+        #15152b,
+        #101020
+    );
+
+    border:1px solid #2b2b48;
+
+    border-radius:18px;
+
+    padding:32px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
+}
+
+.lesson-number{
+    color:#22d3ee;
+
+    font-size:13px;
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+.lesson-card h2{
+    font-size:29px;
+    margin-bottom:20px;
+}
+
+.lesson-card p{
+    color:#c1c1d1;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.lesson-card h3{
+    margin-top:28px;
+    margin-bottom:12px;
+}
+
+/* ================= CODE ================= */
+
+.code-box{
+    background:#080810;
+
+    border:1px solid #303047;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin:18px 0;
+
+    overflow-x:auto;
+}
+
+.code-box pre{
+    color:#67e8f9;
+
+    font-family:Consolas,monospace;
+
+    line-height:1.7;
+
+    white-space:pre-wrap;
+}
+
+/* ================= POINTS ================= */
+
+.points{
+    background:rgba(6,182,212,.07);
+
+    border-left:4px solid #06b6d4;
+
+    padding:18px 20px;
+
+    border-radius:10px;
+
+    margin-top:20px;
+}
+
+.points li{
+    color:#d2d2df;
+
+    margin:9px 0;
+
+    margin-left:18px;
+}
+
+/* ================= QUIZ ================= */
+
+.quiz-box{
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    background:#19192e;
+
+    border:1px solid #30304c;
+}
+
+.quiz-box h3{
+    margin-top:0;
+    font-size:21px;
+}
+
+.question{
+    color:#eeeeff;
+
+    margin-bottom:18px;
+
+    line-height:1.6;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.option{
+    padding:14px 16px;
+
+    background:#23233c;
+
+    border:1px solid #343452;
+
+    border-radius:10px;
+
+    color:#dddded;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.option:hover{
+    background:#303052;
+    border-color:#06b6d4;
+}
+
+.option.selected{
+    background:#083d4a;
+    border-color:#22d3ee;
+}
+
+.option.disabled{
+    cursor:not-allowed;
+    opacity:.6;
+}
+
+/* ================= BUTTONS ================= */
+
+.submit-btn,
+.next-btn,
+.dashboard-btn,
+.certificate-btn{
+
+    margin-top:18px;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:9px;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.submit-btn{
+    background:#0891b2;
+}
+
+.next-btn{
+    background:#2563eb;
+}
+
+.dashboard-btn{
+    background:#303047;
+}
+
+.certificate-btn{
+    background:linear-gradient(
+        135deg,
+        #0891b2,
+        #06b6d4
+    );
+
+    padding:14px 25px;
+
+    font-size:15px;
+}
+
+.submit-btn:hover,
+.next-btn:hover,
+.dashboard-btn:hover,
+.certificate-btn:hover{
+
+    transform:translateY(-2px);
+
+    opacity:.9;
+}
+
+.submit-btn:disabled{
+    cursor:not-allowed;
+    opacity:.5;
+    transform:none;
+}
+
+/* ================= FEEDBACK ================= */
+
+.feedback{
+    margin-top:15px;
+
+    padding:13px;
+
+    border-radius:9px;
+
+    display:none;
+
+    line-height:1.5;
+}
+
+.feedback.correct{
+    display:block;
+
+    background:rgba(46,204,113,.12);
+
+    border:1px solid #2ecc71;
+
+    color:#72f5a5;
+}
+
+.feedback.wrong{
+    display:block;
+
+    background:rgba(231,76,60,.12);
+
+    border:1px solid #e74c3c;
+
+    color:#ff8f85;
+}
+
+/* ================= COMPLETED ================= */
+
+.completed-message{
+    margin-top:18px;
+
+    padding:14px 16px;
+
+    border-radius:10px;
+
+    background:rgba(46,204,113,.10);
+
+    border:1px solid #2ecc71;
+
+    color:#72f5a5;
+
+    line-height:1.6;
+}
+
+/* ================= FINAL RESULT ================= */
+
+.final-result{
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+.final-result h2{
+    font-size:34px;
+
+    color:#67e8f9;
+
+    margin-bottom:15px;
+}
+
+.final-result p{
+    color:#bdbdd0;
+}
+
+.final-score{
+    font-size:70px;
+
+    font-weight:bold;
+
+    margin:25px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #06b6d4,
+            #67e8f9
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:850px){
+
+    .course-layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:relative;
+
+        top:0;
+
+        height:auto;
+
+        border-right:none;
+
+        border-bottom:1px solid #29294a;
+    }
+
+    .lesson-list{
+        display:grid;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:8px;
+    }
+
+    .lesson{
+        margin-bottom:0;
+    }
+
+    .content{
+        padding:25px 18px;
+    }
+
+    .course-heading h1{
+        font-size:30px;
+    }
+}
+
+@media(max-width:600px){
+
+    header{
+        padding:0 15px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .header-btn{
+        padding:8px 10px;
+        font-size:12px;
+    }
+
+    .lesson-list{
+        grid-template-columns:1fr;
+    }
+
+    .lesson-card{
+        padding:22px;
+    }
+
+    .lesson-card h2{
+        font-size:24px;
+    }
+
+    .final-score{
+        font-size:55px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        AI<span>Learning</span>
+    </div>
+
+    <div class="header-buttons">
+
+        <a href="dashboard.html"
+           class="header-btn">
+            Dashboard
+        </a>
+
+        <a href="index.html"
+           class="header-btn">
+            Home
+        </a>
+
+    </div>
+
+</header>
+
+
+<div class="course-layout">
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <h2>
+        🌐 Web Development
+    </h2>
+
+    <p class="sidebar-subtitle">
+        HTML • CSS • JavaScript
+    </p>
+
+
+    <div class="progress-container">
+
+        <div class="progress-top">
+
+            <span>
+                Course Progress
+            </span>
+
+            <span
+                class="progress-percent"
+                id="progressPercent">
+                0%
+            </span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="lesson-list"
+        id="lessonList">
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="content">
+
+
+<div class="course-heading">
+
+    <span class="tag">
+        🌐 WEB DEVELOPMENT
+    </span>
+
+    <h1>
+        Web Development
+    </h1>
+
+    <p>
+        Learn how websites are created using HTML, CSS and
+        JavaScript. Build responsive, interactive and modern
+        web pages from beginner to advanced level.
+    </p>
+
+</div>
+
+
+<div id="lessonContent"></div>
+
+
+</main>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   WEB DEVELOPMENT LESSON DATA
+========================================== */
+
+const lessons = [
+
+{
+    id:1,
+
+    title:"Introduction to Web Development",
+
+    content:`
+
+        <p>
+            Web Development is the process of creating and
+            maintaining websites and web applications.
+        </p>
+
+        <p>
+            A modern website normally uses HTML for structure,
+            CSS for presentation and JavaScript for interaction.
+        </p>
+
+        <div class="points">
+
+            <ul>
+
+                <li>HTML → Structure</li>
+
+                <li>CSS → Design and layout</li>
+
+                <li>JavaScript → Behaviour and interaction</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "Which technology is mainly used to structure a webpage?",
+
+    options:[
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SQL"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:2,
+
+    title:"HTML Basics",
+
+    content:`
+
+        <p>
+            HTML stands for HyperText Markup Language.
+            It provides the structure of a webpage.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+&lt;h1&gt;Welcome&lt;/h1&gt;
+
+&lt;p&gt;This is my website.&lt;/p&gt;
+</pre>
+
+        </div>
+
+        <p>
+            HTML uses elements and tags to describe webpage content.
+        </p>
+
+    `,
+
+    question:
+        "What does HTML stand for?",
+
+    options:[
+        "HyperText Markup Language",
+        "HighText Machine Language",
+        "Hyper Tool Multi Language",
+        "Home Text Markup Language"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:3,
+
+    title:"HTML Elements and Forms",
+
+    content:`
+
+        <p>
+            HTML provides many elements for displaying content
+            and collecting information from users.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+&lt;form&gt;
+
+    &lt;input type="text"&gt;
+
+    &lt;input type="email"&gt;
+
+    &lt;button&gt;Submit&lt;/button&gt;
+
+&lt;/form&gt;
+</pre>
+
+        </div>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Headings</li>
+
+                <li>Paragraphs</li>
+
+                <li>Links</li>
+
+                <li>Images</li>
+
+                <li>Forms</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "Which HTML element is commonly used to create a form?",
+
+    options:[
+        "&lt;form&gt;",
+        "&lt;table&gt;",
+        "&lt;img&gt;",
+        "&lt;footer&gt;"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:4,
+
+    title:"CSS Basics",
+
+    content:`
+
+        <p>
+            CSS stands for Cascading Style Sheets.
+            It controls the visual appearance of webpages.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+body {
+    background: black;
+    color: white;
+}
+
+h1 {
+    font-size: 40px;
+}
+</pre>
+
+        </div>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Colors</li>
+
+                <li>Fonts</li>
+
+                <li>Spacing</li>
+
+                <li>Borders</li>
+
+                <li>Layouts</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "What is CSS mainly used for?",
+
+    options:[
+        "Styling webpages",
+        "Creating databases",
+        "Managing servers",
+        "Writing SQL queries"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:5,
+
+    title:"CSS Selectors",
+
+    content:`
+
+        <p>
+            CSS selectors identify the HTML elements that should
+            receive particular styles.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+p {
+    color: white;
+}
+
+.title {
+    font-size: 30px;
+}
+
+#main {
+    padding: 20px;
+}
+</pre>
+
+        </div>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Element selector</li>
+
+                <li>Class selector</li>
+
+                <li>ID selector</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "Which symbol is used for a CSS class selector?",
+
+    options:[
+        ".",
+        "#",
+        "@",
+        "$"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:6,
+
+    title:"CSS Box Model",
+
+    content:`
+
+        <p>
+            The CSS Box Model describes how space is calculated
+            around an HTML element.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+Content
+   ↓
+Padding
+   ↓
+Border
+   ↓
+Margin
+</pre>
+
+        </div>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Content</li>
+
+                <li>Padding</li>
+
+                <li>Border</li>
+
+                <li>Margin</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "Which property creates space outside an element's border?",
+
+    options:[
+        "Margin",
+        "Padding",
+        "Border",
+        "Content"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:7,
+
+    title:"Responsive Web Design",
+
+    content:`
+
+        <p>
+            Responsive Web Design allows websites to adapt to
+            different screen sizes such as desktops, tablets
+            and mobile phones.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+@media (max-width: 600px) {
+
+    body {
+        font-size: 14px;
+    }
+
+}
+</pre>
+
+        </div>
+
+        <p>
+            Media queries are commonly used to create responsive layouts.
+        </p>
+
+    `,
+
+    question:
+        "What is the purpose of responsive web design?",
+
+    options:[
+        "To adapt websites to different screen sizes",
+        "To delete websites",
+        "To create databases",
+        "To replace HTML"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:8,
+
+    title:"JavaScript Basics",
+
+    content:`
+
+        <p>
+            JavaScript is a programming language used to make
+            webpages interactive and dynamic.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+let name = "Student";
+
+console.log(name);
+</pre>
+
+        </div>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Variables</li>
+
+                <li>Functions</li>
+
+                <li>Conditions</li>
+
+                <li>Loops</li>
+
+                <li>Events</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "What is JavaScript mainly used for in websites?",
+
+    options:[
+        "Adding behaviour and interaction",
+        "Creating only images",
+        "Replacing the monitor",
+        "Formatting hard drives"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:9,
+
+    title:"JavaScript Variables and Functions",
+
+    content:`
+
+        <p>
+            Variables store information while functions contain
+            reusable blocks of code.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+function greet(name) {
+
+    return "Hello " + name;
+
+}
+
+let message = greet("Student");
+
+console.log(message);
+</pre>
+
+        </div>
+
+    `,
+
+    question:
+        "What is the purpose of a function?",
+
+    options:[
+        "To group reusable code",
+        "To create hardware",
+        "To store only images",
+        "To turn off a computer"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:10,
+
+    title:"JavaScript DOM",
+
+    content:`
+
+        <p>
+            The Document Object Model (DOM) represents the structure
+            of an HTML document and allows JavaScript to interact
+            with webpage elements.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+document.getElementById("title")
+    .textContent = "Hello!";
+</pre>
+
+        </div>
+
+        <p>
+            Using the DOM, JavaScript can change content, styles
+            and elements dynamically.
+        </p>
+
+    `,
+
+    question:
+        "What does DOM stand for?",
+
+    options:[
+        "Document Object Model",
+        "Digital Online Machine",
+        "Data Object Manager",
+        "Document Operating Mode"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:11,
+
+    title:"JavaScript Events",
+
+    content:`
+
+        <p>
+            Events allow JavaScript to respond to actions performed
+            by users.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+button.addEventListener(
+    "click",
+    function() {
+        alert("Hello!");
+    }
+);
+</pre>
+
+        </div>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Click</li>
+
+                <li>Submit</li>
+
+                <li>Mouse movement</li>
+
+                <li>Keyboard input</li>
+
+                <li>Page loading</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "Which event commonly occurs when a user presses a button?",
+
+    options:[
+        "click",
+        "delete",
+        "database",
+        "compile"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:12,
+
+    title:"Modern CSS Layouts",
+
+    content:`
+
+        <p>
+            Modern CSS provides powerful layout systems such as
+            Flexbox and CSS Grid.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+.container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+</pre>
+
+        </div>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Flexbox</li>
+
+                <li>CSS Grid</li>
+
+                <li>Alignment</li>
+
+                <li>Spacing</li>
+
+                <li>Responsive layouts</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "Which CSS technology is designed for flexible one-dimensional layouts?",
+
+    options:[
+        "Flexbox",
+        "HTML",
+        "SQL",
+        "Python"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:13,
+
+    title:"Web Accessibility and Security",
+
+    content:`
+
+        <p>
+            Web accessibility helps people with different abilities
+            use websites effectively.
+        </p>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Use meaningful HTML</li>
+
+                <li>Provide image alt text</li>
+
+                <li>Use readable colours</li>
+
+                <li>Support keyboard navigation</li>
+
+                <li>Protect user information</li>
+
+            </ul>
+
+        </div>
+
+        <p>
+            Security is also important when building modern websites,
+            especially when handling user data.
+        </p>
+
+    `,
+
+    question:
+        "Why is web accessibility important?",
+
+    options:[
+        "It helps more people use websites",
+        "It removes HTML",
+        "It disables websites",
+        "It replaces CSS"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:14,
+
+    title:"Web Development Project",
+
+    content:`
+
+        <p>
+            A web development project combines HTML, CSS and
+            JavaScript to create a complete interactive website.
+        </p>
+
+        <div class="code-box">
+
+<pre>
+HTML
+  ↓
+Page Structure
+  ↓
+CSS
+  ↓
+Design
+  ↓
+JavaScript
+  ↓
+Interaction
+  ↓
+Complete Website
+</pre>
+
+        </div>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Plan the website</li>
+
+                <li>Create HTML structure</li>
+
+                <li>Design with CSS</li>
+
+                <li>Add JavaScript</li>
+
+                <li>Test on different devices</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "Which three technologies form the basic foundation of this course?",
+
+    options:[
+        "HTML, CSS and JavaScript",
+        "SQL, Excel and Access",
+        "Python, Java and C++",
+        "Word, PowerPoint and Excel"
+    ],
+
+    answer:0
+},
+
+
+{
+    id:15,
+
+    title:"Final Web Development Challenge",
+
+    content:`
+
+        <p>
+            🎉 Congratulations! You have reached the final
+            lesson of the Web Development course.
+        </p>
+
+        <p>
+            You have learned HTML structure, CSS styling,
+            responsive design, JavaScript programming,
+            DOM manipulation, events and modern web development.
+        </p>
+
+        <div class="points">
+
+            <ul>
+
+                <li>Review HTML concepts.</li>
+
+                <li>Review CSS concepts.</li>
+
+                <li>Review JavaScript concepts.</li>
+
+                <li>Think about your own website project.</li>
+
+                <li>Complete the final challenge.</li>
+
+            </ul>
+
+        </div>
+
+    `,
+
+    question:
+        "Which technology is responsible for adding interactivity to a webpage?",
+
+    options:[
+        "JavaScript",
+        "HTML only",
+        "CSS only",
+        "JPEG"
+    ],
+
+    answer:0
+}
+
+];
+
+
+/* ==========================================
+   LOCAL STORAGE
+========================================== */
+
+function getCompletedLessons(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                "webCompletedLessonIds"
+            ) || "[]"
+        );
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+function getScores(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                "webLessonScores"
+            ) || "{}"
+        );
+
+    }catch(error){
+
+        return {};
+
+    }
+
+}
+
+
+function saveCompletedLessons(data){
+
+    localStorage.setItem(
+        "webCompletedLessonIds",
+        JSON.stringify(data)
+    );
+
+}
+
+
+function saveScores(data){
+
+    localStorage.setItem(
+        "webLessonScores",
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* ==========================================
+   CERTIFICATE INFORMATION
+========================================== */
+
+function createCertificateDetails(){
+
+    const completed =
+        getCompletedLessons();
+
+
+    if(
+        completed.length !==
+        lessons.length
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        !localStorage.getItem(
+            "webCertificateDate"
+        )
+    ){
+
+        const today =
+            new Date();
+
+        const date =
+            today.toLocaleDateString(
+                "en-GB"
+            );
+
+        localStorage.setItem(
+            "webCertificateDate",
+            date
+        );
+
+    }
+
+
+    if(
+        !localStorage.getItem(
+            "webCertificateId"
+        )
+    ){
+
+        const randomNumber =
+            Math.floor(
+                100000 +
+                Math.random() * 900000
+            );
+
+
+        const certificateId =
+            "WEB-" +
+            randomNumber;
+
+
+        localStorage.setItem(
+            "webCertificateId",
+            certificateId
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   CURRENT LESSON
+========================================== */
+
+let currentLesson = 1;
+
+let selectedAnswer = null;
+
+let answeredCurrent = false;
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+function renderLessonList(){
+
+    const list =
+        document.getElementById(
+            "lessonList"
+        );
+
+
+    const completed =
+        getCompletedLessons();
+
+
+    list.innerHTML = "";
+
+
+    lessons.forEach(lesson => {
+
+        const button =
+            document.createElement(
+                "div"
+            );
+
+
+        button.className =
+            "lesson";
+
+
+        if(
+            lesson.id ===
+            currentLesson
+        ){
+
+            button.classList.add(
+                "active"
+            );
+
+        }
+
+
+        if(
+            completed.includes(
+                lesson.id
+            )
+        ){
+
+            button.classList.add(
+                "completed"
+            );
+
+        }
+
+
+        button.textContent =
+            completed.includes(
+                lesson.id
+            )
+
+            ?
+
+            "✓ Completed " +
+            lesson.id +
+            ". " +
+            lesson.title
+
+            :
+
+            lesson.id +
+            ". " +
+            lesson.title;
+
+
+        button.onclick =
+            function(){
+
+                currentLesson =
+                    lesson.id;
+
+                selectedAnswer =
+                    null;
+
+                answeredCurrent =
+                    false;
+
+                renderLessonList();
+
+                renderLesson();
+
+                window.scrollTo({
+                    top:0,
+                    behavior:"smooth"
+                });
+
+            };
+
+
+        list.appendChild(
+            button
+        );
+
+    });
+
+}
+
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+function updateProgress(){
+
+    const completed =
+        getCompletedLessons();
+
+
+    const percentage =
+        Math.round(
+            (
+                completed.length /
+                lessons.length
+            ) * 100
+        );
+
+
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+        percentage + "%";
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        percentage + "%";
+
+}
+
+
+/* ==========================================
+   RENDER LESSON
+========================================== */
+
+function renderLesson(){
+
+    const lesson =
+        lessons.find(
+            item =>
+                item.id ===
+                currentLesson
+        );
+
+
+    if(!lesson){
+        return;
+    }
+
+
+    selectedAnswer = null;
+
+    answeredCurrent = false;
+
+
+    const completed =
+        getCompletedLessons();
+
+
+    const alreadyCompleted =
+        completed.includes(
+            lesson.id
+        );
+
+
+    const content =
+        document.getElementById(
+            "lessonContent"
+        );
+
+
+    content.innerHTML = `
+
+        <div class="lesson-card">
+
+            <div class="lesson-number">
+
+                Lesson
+                ${lesson.id}
+                of
+                ${lessons.length}
+
+            </div>
+
+
+            <h2>
+                ${lesson.title}
+            </h2>
+
+
+            ${lesson.content}
+
+
+            <div class="quiz-box">
+
+                <h3>
+                    📝 Quick Quiz
+                </h3>
+
+
+                <p class="question">
+
+                    <strong>
+                        ${lesson.question}
+                    </strong>
+
+                </p>
+
+
+                <div
+                    class="options"
+                    id="options"
+                >
+
+                    ${lesson.options.map(
+                        (option,index) => `
+
+                        <div
+                            class="option ${
+                                alreadyCompleted
+                                ? "disabled"
+                                : ""
+                            }"
+
+                            ${
+                                alreadyCompleted
+                                ? ""
+                                : `onclick="selectOption(${index})"`
+                            }
+                        >
+
+                            ${
+                                String.fromCharCode(
+                                    65 + index
+                                )
+                            }.
+                            ${option}
+
+                        </div>
+
+                    `
+                    ).join("")}
+
+                </div>
+
+
+                ${
+                    alreadyCompleted
+
+                    ?
+
+                    `
+
+                    <div class="completed-message">
+
+                        ✓ This lesson has already
+                        been completed successfully.
+
+                        <br>
+
+                        Your completion is already saved.
+
+                    </div>
+
+
+                    <button
+                        class="next-btn"
+                        onclick="nextLesson()"
+                    >
+
+                        ${
+                            currentLesson ===
+                            lessons.length
+
+                            ?
+
+                            "View Final Result →"
+
+                            :
+
+                            "Next Lesson →"
+                        }
+
+                    </button>
+
+                    `
+
+                    :
+
+                    `
+
+                    <button
+                        class="submit-btn"
+                        id="submitButton"
+                        onclick="checkAnswer()"
+                    >
+
+                        Check Answer
+
+                    </button>
+
+
+                    <div
+                        id="feedback"
+                        class="feedback"
+                    ></div>
+
+                    `
+                }
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    if(alreadyCompleted){
+
+        answeredCurrent =
+            true;
+
+    }
+
+}
+
+
+/* ==========================================
+   SELECT OPTION
+========================================== */
+
+function selectOption(index){
+
+    if(answeredCurrent){
+        return;
+    }
+
+
+    selectedAnswer =
+        index;
+
+
+    const options =
+        document.querySelectorAll(
+            ".option"
+        );
+
+
+    options.forEach(option => {
+
+        option.classList.remove(
+            "selected"
+        );
+
+    });
+
+
+    if(options[index]){
+
+        options[index].classList.add(
+            "selected"
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   CHECK ANSWER
+========================================== */
+
+function checkAnswer(){
+
+    if(answeredCurrent){
+        return;
+    }
+
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+
+    if(!feedback){
+        return;
+    }
+
+
+    if(selectedAnswer === null){
+
+        feedback.textContent =
+            "⚠️ Please select an answer first.";
+
+        feedback.className =
+            "feedback wrong";
+
+        return;
+
+    }
+
+
+    const lesson =
+        lessons.find(
+            item =>
+                item.id ===
+                currentLesson
+        );
+
+
+    if(!lesson){
+        return;
+    }
+
+
+    if(
+        selectedAnswer ===
+        lesson.answer
+    ){
+
+        answeredCurrent =
+            true;
+
+
+        feedback.textContent =
+            "🎉 Correct! Excellent work.";
+
+
+        feedback.className =
+            "feedback correct";
+
+
+        const submitButton =
+            document.getElementById(
+                "submitButton"
+            );
+
+
+        if(submitButton){
+
+            submitButton.disabled =
+                true;
+
+        }
+
+
+        completeLesson();
+
+    }
+
+    else{
+
+        feedback.textContent =
+            "❌ Incorrect. Please review the lesson and try again.";
+
+        feedback.className =
+            "feedback wrong";
+
+    }
+
+}
+
+
+/* ==========================================
+   COMPLETE LESSON
+========================================== */
+
+function completeLesson(){
+
+    let completed =
+        getCompletedLessons();
+
+
+    let scores =
+        getScores();
+
+
+    /*
+       Prevent duplicate completion.
+    */
+
+    if(
+        completed.includes(
+            currentLesson
+        )
+    ){
+
+        updateProgress();
+
+        renderLessonList();
+
+        return;
+
+    }
+
+
+    completed.push(
+        currentLesson
+    );
+
+
+    completed.sort(
+        (a,b) => a-b
+    );
+
+
+    scores[currentLesson] =
+        1;
+
+
+    saveCompletedLessons(
+        completed
+    );
+
+
+    saveScores(
+        scores
+    );
+
+
+    updateProgress();
+
+    renderLessonList();
+
+
+    /*
+       ALL 15 COMPLETED
+    */
+
+    if(
+        completed.length ===
+        lessons.length
+    ){
+
+        createCertificateDetails();
+
+
+        setTimeout(
+            function(){
+
+                showFinalResult();
+
+            },
+            700
+        );
+
+    }
+
+    else{
+
+        const quizBox =
+            document.querySelector(
+                ".quiz-box"
+            );
+
+
+        if(quizBox){
+
+            const existingNext =
+                quizBox.querySelector(
+                    ".next-btn"
+                );
+
+
+            if(!existingNext){
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.className =
+                    "next-btn";
+
+
+                button.textContent =
+                    "Next Lesson →";
+
+
+                button.onclick =
+                    nextLesson;
+
+
+                quizBox.appendChild(
+                    button
+                );
+
+            }
+
+        }
+
+    }
+
+}
+
+
+/* ==========================================
+   NEXT LESSON
+========================================== */
+
+function nextLesson(){
+
+    if(
+        currentLesson <
+        lessons.length
+    ){
+
+        currentLesson++;
+
+        selectedAnswer =
+            null;
+
+        answeredCurrent =
+            false;
+
+
+        renderLessonList();
+
+        renderLesson();
+
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+
+    else{
+
+        showFinalResult();
+
+    }
+
+}
+
+
+/* ==========================================
+   FINAL RESULT
+========================================== */
+
+function showFinalResult(){
+
+    const completed =
+        getCompletedLessons();
+
+
+    if(
+        completed.length !==
+        lessons.length
+    ){
+
+        return;
+
+    }
+
+
+    const scores =
+        getScores();
+
+
+    let totalScore = 0;
+
+
+    for(
+        let i=1;
+        i<=lessons.length;
+        i++
+    ){
+
+        if(
+            scores[i] !==
+            undefined
+        ){
+
+            totalScore +=
+                Number(
+                    scores[i]
+                );
+
+        }
+
+    }
+
+
+    createCertificateDetails();
+
+
+    let resultMessage = "";
+
+
+    if(totalScore >= 13){
+
+        resultMessage =
+            "Excellent! You have a strong understanding of Web Development.";
+
+    }
+
+    else if(totalScore >= 10){
+
+        resultMessage =
+            "Very Good! You have completed the Web Development learning path successfully.";
+
+    }
+
+    else if(totalScore >= 8){
+
+        resultMessage =
+            "Good Work! Keep practising your web development skills.";
+
+    }
+
+    else{
+
+        resultMessage =
+            "Keep Practising! Review the lessons and strengthen your web development fundamentals.";
+
+    }
+
+
+    document.getElementById(
+        "lessonContent"
+    ).innerHTML = `
+
+        <div class="lesson-card">
+
+            <div class="final-result">
+
+                <h2>
+                    🎉 Web Development Course Completed!
+                </h2>
+
+
+                <p>
+
+                    Congratulations!
+
+                    You completed all
+                    ${lessons.length}
+                    Web Development lessons.
+
+                </p>
+
+
+                <div class="final-score">
+
+                    ${totalScore}
+                    /
+                    ${lessons.length}
+
+                </div>
+
+
+                <p>
+                    ${resultMessage}
+                </p>
+
+
+                <p style="margin-top:12px;">
+
+                    Completed Lessons:
+
+                    <strong>
+
+                        ${completed.length}
+                        /
+                        ${lessons.length}
+
+                    </strong>
+
+                </p>
+
+
+                <button
+                    class="certificate-btn"
+                    onclick="viewCertificate()"
+                >
+
+                    🏆 View Web Development Certificate
+
+                </button>
+
+
+                <br>
+
+
+                <button
+                    class="dashboard-btn"
+                    onclick="goDashboard()"
+                >
+
+                    ← Go to Dashboard
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ==========================================
+   CERTIFICATE
+========================================== */
+
+function viewCertificate(){
+
+    const completed =
+        getCompletedLessons();
+
+
+    if(
+        completed.length !==
+        lessons.length
+    ){
+
+        alert(
+            "🔒 Please complete all 15 Web Development lessons to unlock your certificate."
+        );
+
+        return;
+
+    }
+
+
+    createCertificateDetails();
+
+
+    window.location.href =
+        "web-development-certificate.html";
+
+}
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+function goDashboard(){
+
+    window.location.href =
+        "dashboard.html";
+
+}
+
+
+/* ==========================================
+   INITIALIZE
+========================================== */
+
+function initializeCourse(){
+
+    updateProgress();
+
+    renderLessonList();
+
+    renderLesson();
+
+}
+
+
+initializeCourse();
+
+</script>
+
+</body>
+
+</html>

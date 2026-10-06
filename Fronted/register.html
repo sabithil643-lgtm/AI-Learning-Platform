@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Account | AI Learn</title>
+
+
+    <style>
+
+        /* =================================================
+           RESET
+        ================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =================================================
+           BODY
+        ================================================= */
+
+        body {
+
+            min-height: 100vh;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color: #ffffff;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(124, 58, 237, 0.30),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(99, 102, 241, 0.22),
+                    transparent 30%
+                ),
+
+                #070a16;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px 15px;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =================================================
+           BACKGROUND
+        ================================================= */
+
+        .glow {
+
+            position: fixed;
+
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+
+            filter: blur(90px);
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        .glow-one {
+
+            top: -100px;
+            left: -100px;
+
+            background:
+                rgba(124, 58, 237, 0.20);
+        }
+
+
+        .glow-two {
+
+            right: -100px;
+            bottom: -100px;
+
+            background:
+                rgba(99, 102, 241, 0.18);
+        }
+
+
+        /* =================================================
+           MAIN CARD
+        ================================================= */
+
+        .register-wrapper {
+
+            width: 94%;
+
+            max-width: 1100px;
+
+            min-height: 650px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            background:
+                rgba(14, 18, 38, 0.90);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 35px 100px
+                rgba(0, 0, 0, 0.55);
+
+            backdrop-filter: blur(20px);
+        }
+
+
+        /* =================================================
+           LEFT SIDE
+        ================================================= */
+
+        .register-info {
+
+            padding: 55px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(124, 58, 237, 0.22),
+                    rgba(14, 18, 38, 0.15)
+                );
+
+            border-right:
+                1px solid
+                rgba(255, 255, 255, 0.06);
+        }
+
+
+        /* BRAND */
+
+        .brand {
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            margin-bottom: 45px;
+        }
+
+
+        .brand span {
+
+            color: #a78bfa;
+        }
+
+
+        /* ICON */
+
+        .register-icon {
+
+            width: 78px;
+            height: 78px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #4f46e5
+                );
+
+            font-size: 38px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(124, 58, 237, 0.30);
+        }
+
+
+        .register-info h1 {
+
+            max-width: 430px;
+
+            font-size: 44px;
+
+            line-height: 1.12;
+        }
+
+
+        .register-info h1 span {
+
+            color: #a78bfa;
+        }
+
+
+        .register-info > p {
+
+            max-width: 450px;
+
+            margin-top: 18px;
+
+            color: #929bb2;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* BENEFITS */
+
+        .benefits {
+
+            margin-top: 30px;
+
+            display: grid;
+
+            gap: 13px;
+        }
+
+
+        .benefit {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            color: #c7cede;
+
+            font-size: 13px;
+        }
+
+
+        .benefit-icon {
+
+            width: 29px;
+            height: 29px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 8px;
+
+            background:
+                rgba(124, 58, 237, 0.18);
+
+            color: #c4b5fd;
+        }
+
+
+        /* =================================================
+           RIGHT SIDE
+        ================================================= */
+
+        .register-form-area {
+
+            padding: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .register-box {
+
+            width: 100%;
+
+            max-width: 430px;
+        }
+
+
+        .register-box h2 {
+
+            font-size: 31px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .register-box > p {
+
+            color: #818ba3;
+
+            font-size: 13px;
+
+            margin-bottom: 27px;
+        }
+
+
+        /* =================================================
+           FORM
+        ================================================= */
+
+        .form-group {
+
+            margin-bottom: 16px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #c7cede;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
+        }
+
+
+        .input-icon {
+
+            position: absolute;
+
+            left: 14px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: #68728a;
+
+            font-size: 15px;
+
+            pointer-events: none;
+        }
+
+
+        .input-wrapper input {
+
+            width: 100%;
+
+            padding:
+                13px
+                43px;
+
+            border:
+                1px solid
+                #2d344c;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            background: #0d1223;
+
+            color: #ffffff;
+
+            font-size: 13px;
+
+            transition: 0.25s;
+        }
+
+
+        .input-wrapper input::placeholder {
+
+            color: #596379;
+        }
+
+
+        .input-wrapper input:focus {
+
+            border-color:
+                #8b5cf6;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(139, 92, 246, 0.12);
+        }
+
+
+        /* PASSWORD TOGGLE */
+
+        .password-toggle {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            color: #737d94;
+
+            cursor: pointer;
+
+            font-size: 15px;
+        }
+
+
+        /* =================================================
+           PASSWORD STRENGTH
+        ================================================= */
+
+        .password-strength {
+
+            margin-top: 8px;
+        }
+
+
+        .strength-bars {
+
+            display: flex;
+
+            gap: 5px;
+        }
+
+
+        .strength-bar {
+
+            flex: 1;
+
+            height: 4px;
+
+            border-radius: 10px;
+
+            background: #252b42;
+
+            transition: 0.25s;
+        }
+
+
+        .strength-text {
+
+            margin-top: 5px;
+
+            color: #69748b;
+
+            font-size: 10px;
+        }
+
+
+        /* =================================================
+           TERMS
+        ================================================= */
+
+        .terms {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 8px;
+
+            margin:
+                17px 0
+                20px;
+
+            color: #737e95;
+
+            font-size: 10px;
+
+            line-height: 1.5;
+        }
+
+
+        .terms input {
+
+            margin-top: 2px;
+
+            accent-color:
+                #7c3aed;
+        }
+
+
+        .terms a {
+
+            color: #a78bfa;
+
+            text-decoration: none;
+        }
+
+
+        /* =================================================
+           MESSAGE
+        ================================================= */
+
+        .message {
+
+            display: none;
+
+            padding: 11px 13px;
+
+            margin-bottom: 15px;
+
+            border-radius: 8px;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+        }
+
+
+        .message.error {
+
+            display: block;
+
+            color: #fca5a5;
+
+            background:
+                rgba(239, 68, 68, 0.10);
+
+            border:
+                1px solid
+                rgba(239, 68, 68, 0.20);
+        }
+
+
+        .message.success {
+
+            display: block;
+
+            color: #86efac;
+
+            background:
+                rgba(34, 197, 94, 0.10);
+
+            border:
+                1px solid
+                rgba(34, 197, 94, 0.20);
+        }
+
+
+        /* =================================================
+           CREATE ACCOUNT BUTTON
+        ================================================= */
+
+        .register-button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #6366f1
+                );
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px
+                rgba(124, 58, 237, 0.25);
+
+            transition: 0.25s;
+        }
+
+
+        .register-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(124, 58, 237, 0.35);
+        }
+
+
+        .register-button:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =================================================
+           LOGIN LINK
+        ================================================= */
+
+        .login-text {
+
+            text-align: center;
+
+            margin-top: 21px;
+
+            color: #7f899f;
+
+            font-size: 12px;
+        }
+
+
+        .login-text a {
+
+            color: #a78bfa;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+
+        .login-text a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =================================================
+           BACK HOME
+        ================================================= */
+
+        .back-home {
+
+            display: block;
+
+            margin-top: 19px;
+
+            text-align: center;
+
+            color: #68728a;
+
+            font-size: 11px;
+
+            text-decoration: none;
+        }
+
+
+        .back-home:hover {
+
+            color: #a78bfa;
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media (max-width: 850px) {
+
+            .register-wrapper {
+
+                grid-template-columns: 1fr;
+
+                max-width: 520px;
+            }
+
+
+            .register-info {
+
+                display: none;
+            }
+
+
+            .register-form-area {
+
+                padding:
+                    45px 30px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            body {
+
+                padding: 15px;
+            }
+
+
+            .register-wrapper {
+
+                width: 100%;
+
+                border-radius: 20px;
+            }
+
+
+            .register-form-area {
+
+                padding:
+                    35px 22px;
+            }
+
+
+            .register-box h2 {
+
+                font-size: 27px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Background effects -->
+
+    <div class="glow glow-one"></div>
+
+    <div class="glow glow-two"></div>
+
+
+    <!-- =================================================
+         REGISTER WRAPPER
+    ================================================= -->
+
+    <div class="register-wrapper">
+
+
+        <!-- =================================================
+             LEFT INFORMATION
+        ================================================= -->
+
+        <section class="register-info">
+
+
+            <div class="brand">
+
+                🤖 AI<span>Learn</span>
+
+            </div>
+
+
+            <div class="register-icon">
+
+                🚀
+
+            </div>
+
+
+            <h1>
+
+                Start your
+
+                <span>
+                    smarter learning
+                </span>
+
+                journey.
+
+            </h1>
+
+
+            <p>
+
+                Create your AI Learn account and unlock
+                interactive coding courses, AI-powered
+                learning assistance and progress tracking.
+
+            </p>
+
+
+            <div class="benefits">
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    Learn at your own pace
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    Practice real coding skills
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    Track your learning progress
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    Earn achievements and certificates
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REGISTER FORM
+        ================================================= -->
+
+        <section class="register-form-area">
+
+
+            <div class="register-box">
+
+
+                <h2>
+                    Create your account
+                </h2>
+
+
+                <p>
+                    Join AI Learn and start learning today.
+                </p>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    class="message"
+                    id="registerMessage">
+                </div>
+
+
+                <form id="registerForm">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                👤
+                            </span>
+
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                ✉
+                            </span>
+
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔒
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                                required>
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword">
+
+                                👁
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- PASSWORD STRENGTH -->
+
+                        <div
+                            class="password-strength">
+
+                            <div
+                                class="strength-bars">
+
+                                <div
+                                    class="strength-bar"
+                                    id="bar1">
+                                </div>
+
+                                <div
+                                    class="strength-bar"
+                                    id="bar2">
+                                </div>
+
+                                <div
+                                    class="strength-bar"
+                                    id="bar3">
+                                </div>
+
+                                <div
+                                    class="strength-bar"
+                                    id="bar4">
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="strength-text"
+                                id="strengthText">
+
+                                Password strength
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔐
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Re-enter your password"
+                                autocomplete="new-password"
+                                required>
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="toggleConfirmPassword">
+
+                                👁
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TERMS -->
+
+                    <label class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms">
+
+                        <span>
+
+                            I agree to the
+                            <a href="#">
+                                Terms of Service
+                            </a>
+                            and
+                            <a href="#">
+                                Privacy Policy
+                            </a>.
+
+                        </span>
+
+                    </label>
+
+
+                    <!-- CREATE ACCOUNT -->
+
+                    <button
+                        type="submit"
+                        class="register-button"
+                        id="registerButton">
+
+                        Create Account →
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- LOGIN -->
+
+                <div class="login-text">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Sign in
+                    </a>
+
+                </div>
+
+
+                <!-- HOME -->
+
+                <a
+                    href="index.html"
+                    class="back-home">
+
+                    ← Back to AI Learn
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================= -->
+
+    <script>
+
+
+        // =================================================
+        // ELEMENTS
+        // =================================================
+
+        const registerForm =
+            document.getElementById(
+                "registerForm"
+            );
+
+
+        const registerMessage =
+            document.getElementById(
+                "registerMessage"
+            );
+
+
+        const passwordInput =
+            document.getElementById(
+                "password"
+            );
+
+
+        const confirmPasswordInput =
+            document.getElementById(
+                "confirmPassword"
+            );
+
+
+        const registerButton =
+            document.getElementById(
+                "registerButton"
+            );
+
+
+        // =================================================
+        // PASSWORD SHOW / HIDE
+        // =================================================
+
+        document
+            .getElementById("togglePassword")
+            .addEventListener(
+                "click",
+                function () {
+
+                    if (
+                        passwordInput.type ===
+                        "password"
+                    ) {
+
+                        passwordInput.type =
+                            "text";
+
+                        this.textContent =
+                            "🙈";
+
+                    } else {
+
+                        passwordInput.type =
+                            "password";
+
+                        this.textContent =
+                            "👁";
+
+                    }
+
+                }
+            );
+
+
+        // =================================================
+        // CONFIRM PASSWORD SHOW / HIDE
+        // =================================================
+
+        document
+            .getElementById(
+                "toggleConfirmPassword"
+            )
+            .addEventListener(
+                "click",
+                function () {
+
+                    if (
+                        confirmPasswordInput.type ===
+                        "password"
+                    ) {
+
+                        confirmPasswordInput.type =
+                            "text";
+
+                        this.textContent =
+                            "🙈";
+
+                    } else {
+
+                        confirmPasswordInput.type =
+                            "password";
+
+                        this.textContent =
+                            "👁";
+
+                    }
+
+                }
+            );
+
+
+        // =================================================
+        // PASSWORD STRENGTH
+        // =================================================
+
+        passwordInput.addEventListener(
+            "input",
+            function () {
+
+                const password =
+                    this.value;
+
+                const bars = [
+
+                    document.getElementById("bar1"),
+
+                    document.getElementById("bar2"),
+
+                    document.getElementById("bar3"),
+
+                    document.getElementById("bar4")
+
+                ];
+
+
+                const strengthText =
+                    document.getElementById(
+                        "strengthText"
+                    );
+
+
+                bars.forEach(
+                    function (bar) {
+
+                        bar.style.background =
+                            "#252b42";
+
+                    }
+                );
+
+
+                if (!password) {
+
+                    strengthText.textContent =
+                        "Password strength";
+
+                    return;
+                }
+
+
+                let score = 0;
+
+
+                if (
+                    password.length >= 6
+                ) {
+                    score++;
+                }
+
+
+                if (
+                    /[A-Z]/.test(password)
+                ) {
+                    score++;
+                }
+
+
+                if (
+                    /[0-9]/.test(password)
+                ) {
+                    score++;
+                }
+
+
+                if (
+                    /[^A-Za-z0-9]/.test(password)
+                ) {
+                    score++;
+                }
+
+
+                for (
+                    let i = 0;
+                    i < score;
+                    i++
+                ) {
+
+                    bars[i].style.background =
+                        "#8b5cf6";
+
+                }
+
+
+                if (score === 1) {
+
+                    strengthText.textContent =
+                        "Weak password";
+
+                } else if (score === 2) {
+
+                    strengthText.textContent =
+                        "Fair password";
+
+                } else if (score === 3) {
+
+                    strengthText.textContent =
+                        "Good password";
+
+                } else if (score === 4) {
+
+                    strengthText.textContent =
+                        "Strong password";
+
+                }
+
+            }
+        );
+
+
+        // =================================================
+        // SHOW MESSAGE
+        // =================================================
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            registerMessage.textContent =
+                message;
+
+            registerMessage.className =
+                "message " + type;
+
+        }
+
+
+        // =================================================
+        // REGISTER
+        // =================================================
+// =================================================
+// REGISTER WITH BACKEND
+// =================================================
+
+registerForm.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const name = document
+        .getElementById("name")
+        .value
+        .trim();
+
+    const email = document
+        .getElementById("email")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const password = passwordInput.value;
+
+    const confirmPassword = confirmPasswordInput.value;
+
+    const terms = document
+        .getElementById("terms")
+        .checked;
+
+
+    // NAME VALIDATION
+    if (name.length < 2) {
+
+        showMessage(
+            "Please enter your full name.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    // EMAIL VALIDATION
+    
+    
+
+
+    // PASSWORD VALIDATION
+    if (password.length < 6) {
+
+        showMessage(
+            "Password must contain at least 6 characters.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    // CONFIRM PASSWORD
+    if (password !== confirmPassword) {
+
+        showMessage(
+            "Passwords do not match.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    // TERMS
+    if (!terms) {
+
+        showMessage(
+            "Please accept the Terms of Service and Privacy Policy.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    // DISABLE BUTTON
+    registerButton.disabled = true;
+    registerButton.textContent = "Creating Account...";
+
+
+    try {
+
+        // SEND DATA TO FLASK BACKEND
+        const response = await fetch(
+            "http://127.0.0.1:5000/api/register",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    password: password
+                })
+            }
+        );
+
+
+        const result = await response.json();
+
+
+        // BACKEND ERROR
+        if (!response.ok) {
+
+            showMessage(
+                result.message || "Registration failed.",
+                "error"
+            );
+
+            registerButton.disabled = false;
+            registerButton.textContent =
+                "Create Account →";
+
+            return;
+        }
+
+
+        // SUCCESS
+        showMessage(
+            "Account created successfully! Redirecting to login...",
+            "success"
+        );
+
+
+        // Save only safe user information
+        localStorage.setItem(
+            "aiLearnName",
+            name
+        );
+
+        localStorage.setItem(
+            "aiLearnEmail",
+            email
+        );
+
+
+        // DO NOT SAVE PASSWORD IN LOCALSTORAGE
+
+
+        registerButton.textContent =
+            "Account Created ✓";
+
+
+        // GO TO LOGIN PAGE
+        setTimeout(function () {
+
+            window.location.href =
+                "login.html";
+
+        }, 1200);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showMessage(
+            "Cannot connect to the backend. Make sure Flask is running.",
+            "error"
+        );
+
+        registerButton.disabled = false;
+
+        registerButton.textContent =
+            "Create Account →";
+    }
+
+});
+        
+
+    </script>
+
+
+</body>
+
+</html>

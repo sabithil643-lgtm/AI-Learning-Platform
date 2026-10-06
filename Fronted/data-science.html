@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Data Science Course | AI Learning Platform</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #10111f;
+    color: #f5f5f7;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    height: 70px;
+    background: #17182b;
+    border-bottom: 1px solid #292a43;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.logo span {
+    color: #6c5ce7;
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+}
+
+.header-btn {
+    border: none;
+    background: #242541;
+    color: white;
+
+    padding: 10px 15px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.header-btn:hover {
+    background: #6c5ce7;
+}
+
+/* ================= LAYOUT ================= */
+
+.layout {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 290px;
+    background: #15162a;
+    border-right: 1px solid #292a43;
+
+    padding: 22px 18px;
+
+    position: sticky;
+    top: 70px;
+
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.sidebar-subtitle {
+    color: #9b9bad;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.progress-container {
+    background: #23243b;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #c8c8d4;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #30314b;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #6c5ce7;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* ================= LESSON BUTTON ================= */
+
+.lesson {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 13px 14px;
+    margin-bottom: 9px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    color: #d8d8df;
+    background: #22233b;
+
+    border: 1px solid #30314c;
+
+    display: flex;
+    align-items: center;
+
+    transition: 0.2s ease;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.lesson:hover {
+    background: #2c2d49;
+    border-color: #45466b;
+}
+
+.lesson.active {
+    background: #6c5ce7;
+    color: white;
+    border-color: #6c5ce7;
+}
+
+.lesson.completed {
+    background: #22233b;
+    color: #d8d8df;
+    border: 1px solid #2ecc71;
+}
+
+.lesson.active.completed {
+    background: #6c5ce7;
+    color: white;
+    border-color: #6c5ce7;
+}
+
+/* ================= MAIN ================= */
+
+.main {
+    flex: 1;
+    padding: 35px;
+    max-width: 1100px;
+    margin: auto;
+    width: 100%;
+}
+
+.course-heading {
+    margin-bottom: 25px;
+}
+
+.course-heading h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.course-heading p {
+    color: #a8a8b8;
+    line-height: 1.6;
+}
+
+/* ================= LESSON CARD ================= */
+
+.lesson-card {
+    background: #18192d;
+
+    border: 1px solid #292a45;
+    border-radius: 16px;
+
+    padding: 30px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+    animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lesson-number {
+    color: #8c7cff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.lesson-card h2 {
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.explanation {
+    color: #c7c7d2;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* ================= CODE ================= */
+
+.code-box {
+    background: #0d0e18;
+
+    border: 1px solid #292a40;
+    border-radius: 10px;
+
+    padding: 18px;
+
+    margin: 20px 0;
+
+    overflow-x: auto;
+}
+
+.code-box pre {
+    color: #d7d4ff;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ================= QUIZ ================= */
+
+.quiz {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #2b2c45;
+}
+
+.quiz h3 {
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.option {
+    background: #22233b;
+    border: 1px solid #343550;
+
+    border-radius: 9px;
+
+    padding: 13px 15px;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.option:hover {
+    border-color: #6c5ce7;
+}
+
+.option.selected {
+    border-color: #6c5ce7;
+    background: #2c2a50;
+}
+
+.option.correct {
+    border-color: #2ecc71;
+    background: #173722;
+}
+
+.option.wrong {
+    border-color: #e74c3c;
+    background: #3b1c1a;
+}
+
+.check-btn {
+    margin-top: 12px;
+
+    background: #6c5ce7;
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+.check-btn:hover {
+    background: #5b4bd6;
+}
+
+.feedback {
+    margin-top: 15px;
+
+    padding: 12px 15px;
+
+    border-radius: 9px;
+
+    display: none;
+
+    font-size: 14px;
+}
+
+.feedback.correct-feedback {
+    display: block;
+    background: #15351f;
+    color: #63e68a;
+    border: 1px solid #26783d;
+}
+
+.feedback.wrong-feedback {
+    display: block;
+    background: #3b1b19;
+    color: #ff8075;
+    border: 1px solid #8d342c;
+}
+
+/* ================= NEXT ================= */
+
+.next-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-btn {
+    border: none;
+
+    background: #6c5ce7;
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+.next-btn:hover {
+    background: #5b4bd6;
+}
+
+/* ================= FINAL RESULT ================= */
+
+.final-result {
+    text-align: center;
+
+    padding: 45px 25px;
+
+    background: #18192d;
+
+    border: 1px solid #292a45;
+
+    border-radius: 16px;
+}
+
+.final-result .emoji {
+    font-size: 60px;
+}
+
+.final-result h2 {
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+.final-result p {
+    margin-top: 10px;
+    color: #aaaabd;
+}
+
+.certificate-btn {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 13px 22px;
+
+    border-radius: 9px;
+
+    background: #2ecc71;
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.certificate-btn:hover {
+    background: #27ae60;
+}
+
+.dashboard-btn {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    background: #292a45;
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+    }
+
+    .main {
+        padding: 20px;
+    }
+
+    .lesson-card {
+        padding: 22px;
+    }
+
+    .course-heading h1 {
+        font-size: 26px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        AI <span>Learning</span> Platform
+    </div>
+
+    <div class="header-right">
+
+        <a href="dashboard.html" class="header-btn">
+            🏠 Dashboard
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ================= LAYOUT ================= -->
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-title">
+            📊 Data Science
+        </div>
+
+        <div class="sidebar-subtitle">
+            Beginner → Advanced
+        </div>
+
+
+        <div class="progress-container">
+
+            <div class="progress-top">
+
+                <span>Course Progress</span>
+
+                <span id="progressText">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="lessonList"></div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <div class="course-heading">
+
+            <h1>
+                Data Science
+            </h1>
+
+            <p>
+                Learn Data Science from fundamentals
+                to statistics, visualization and
+                machine learning concepts.
+            </p>
+
+        </div>
+
+
+        <div id="lessonArea"></div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   DATA SCIENCE LESSONS
+===================================================== */
+
+const lessons = [
+
+    {
+        title: "Introduction to Data Science",
+
+        explanation:
+            "Data Science is an interdisciplinary field that uses data, statistics, programming and machine learning to discover useful insights and support better decision making.",
+
+        code:
+`import pandas as pd
+
+data = {
+    "Name": ["John", "Anna", "David"],
+    "Score": [85, 90, 78]
+}
+
+df = pd.DataFrame(data)
+
+print(df)`,
+
+        question:
+            "What is the main purpose of Data Science?",
+
+        options: [
+            "Only designing websites",
+            "Finding useful insights from data",
+            "Only creating games",
+            "Only writing documents"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        title: "Python for Data Science",
+
+        explanation:
+            "Python is one of the most popular programming languages for Data Science because it provides powerful libraries such as NumPy, Pandas, Matplotlib and Scikit-learn.",
+
+        code:
+`numbers = [10, 20, 30, 40]
+
+average = sum(numbers) / len(numbers)
+
+print(average)`,
+
+        question:
+            "Which programming language is widely used in Data Science?",
+
+        options: [
+            "Python",
+            "HTML",
+            "CSS",
+            "XML"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        title: "Data Collection & Data Types",
+
+        explanation:
+            "Data can be collected from databases, surveys, APIs, websites, sensors and other sources. Data can be numerical, categorical, textual or boolean.",
+
+        code:
+`age = 21
+name = "Jeshan"
+student = True
+marks = 87.5
+
+print(age)
+print(name)
+print(student)
+print(marks)`,
+
+        question:
+            "Which type represents True or False?",
+
+        options: [
+            "String",
+            "Boolean",
+            "Float",
+            "Integer"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        title: "Data Cleaning & Preprocessing",
+
+        explanation:
+            "Data cleaning removes errors, duplicates and missing values. Preprocessing prepares raw data for analysis and machine learning.",
+
+        code:
+`import pandas as pd
+
+df = pd.read_csv("students.csv")
+
+df = df.drop_duplicates()
+
+df = df.dropna()
+
+print(df)`,
+
+        question:
+            "What is a common purpose of data cleaning?",
+
+        options: [
+            "Adding more errors",
+            "Removing incorrect or missing data",
+            "Deleting the entire dataset",
+            "Creating animations"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        title: "NumPy Basics",
+
+        explanation:
+            "NumPy is a Python library designed for numerical computing. It provides powerful arrays and mathematical operations.",
+
+        code:
+`import numpy as np
+
+numbers = np.array([10, 20, 30, 40])
+
+print(numbers)
+print(numbers.mean())`,
+
+        question:
+            "What is NumPy mainly used for?",
+
+        options: [
+            "Numerical computing",
+            "Web page design",
+            "Video editing",
+            "Email management"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        title: "Pandas Basics",
+
+        explanation:
+            "Pandas is a Python library used for data manipulation and analysis. DataFrame is one of its most important structures.",
+
+        code:
+`import pandas as pd
+
+data = {
+    "Name": ["John", "Anna"],
+    "Age": [20, 21]
+}
+
+df = pd.DataFrame(data)
+
+print(df)`,
+
+        question:
+            "Which Pandas structure is commonly used for tabular data?",
+
+        options: [
+            "DataFrame",
+            "Canvas",
+            "Widget",
+            "ArrayList"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        title: "Data Visualization",
+
+        explanation:
+            "Data visualization presents information using charts and graphs. It helps users understand patterns, trends and comparisons.",
+
+        code:
+`import matplotlib.pyplot as plt
+
+subjects = ["Math", "Science", "English"]
+marks = [80, 90, 75]
+
+plt.bar(subjects, marks)
+
+plt.show()`,
+
+        question:
+            "Why is data visualization useful?",
+
+        options: [
+            "To hide data",
+            "To understand patterns and trends",
+            "To delete data",
+            "To encrypt data"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        title: "Matplotlib & Charts",
+
+        explanation:
+            "Matplotlib is a popular Python visualization library. It can create bar charts, line charts, scatter plots and many other visualizations.",
+
+        code:
+`import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 30]
+
+plt.plot(x, y)
+
+plt.title("Sample Data")
+
+plt.show()`,
+
+        question:
+            "Which library is commonly used to create charts in Python?",
+
+        options: [
+            "Matplotlib",
+            "Django",
+            "Flask",
+            "Tkinter"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        title: "Exploratory Data Analysis",
+
+        explanation:
+            "Exploratory Data Analysis, or EDA, is used to understand a dataset before applying advanced models. It includes examining distributions, relationships and unusual values.",
+
+        code:
+`print(df.head())
+
+print(df.info())
+
+print(df.describe())`,
+
+        question:
+            "What does EDA stand for?",
+
+        options: [
+            "Easy Data Application",
+            "Exploratory Data Analysis",
+            "External Data Algorithm",
+            "Electronic Data Access"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        title: "Statistics for Data Science",
+
+        explanation:
+            "Statistics helps Data Scientists summarize and understand data. Important concepts include mean, median, mode, variance and standard deviation.",
+
+        code:
+`numbers = [10, 20, 20, 30, 40]
+
+mean = sum(numbers) / len(numbers)
+
+print("Mean:", mean)`,
+
+        question:
+            "What is the mean?",
+
+        options: [
+            "The middle value only",
+            "The average value",
+            "The largest value",
+            "The smallest value"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        title: "Machine Learning Introduction",
+
+        explanation:
+            "Machine Learning allows computers to learn patterns from data and make predictions or decisions without being explicitly programmed for every situation.",
+
+        code:
+`from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+
+print("Machine Learning Model Created")`,
+
+        question:
+            "What does Machine Learning allow computers to do?",
+
+        options: [
+            "Learn patterns from data",
+            "Only create images",
+            "Only store files",
+            "Only browse websites"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        title: "Regression & Classification",
+
+        explanation:
+            "Regression predicts continuous numerical values, while classification predicts categories or classes.",
+
+        code:
+`# Regression example
+house_price = 250000
+
+# Classification example
+result = "Pass"
+
+print(house_price)
+print(result)`,
+
+        question:
+            "Which technique predicts categories?",
+
+        options: [
+            "Regression",
+            "Classification",
+            "Visualization",
+            "Cleaning"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        title: "Model Evaluation",
+
+        explanation:
+            "Model evaluation measures how well a machine learning model performs. Different metrics are used depending on the type of problem.",
+
+        code:
+`actual = [1, 1, 0, 1]
+predicted = [1, 0, 0, 1]
+
+print("Model predictions evaluated")`,
+
+        question:
+            "Why do we evaluate a machine learning model?",
+
+        options: [
+            "To measure its performance",
+            "To delete the dataset",
+            "To change Python syntax",
+            "To create a website"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        title: "Real-World Data Science Applications",
+
+        explanation:
+            "Data Science is used in healthcare, finance, education, marketing, transportation, sports, retail and many other industries.",
+
+        code:
+`applications = [
+    "Healthcare",
+    "Finance",
+    "Education",
+    "Marketing",
+    "Sports"
+]
+
+for item in applications:
+    print(item)`,
+
+        question:
+            "Which is a real-world application of Data Science?",
+
+        options: [
+            "Healthcare analytics",
+            "Only typing documents",
+            "Only drawing pictures",
+            "None of these"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        title: "Final Data Science Challenge",
+
+        explanation:
+            "This final challenge combines the main concepts covered in the course, including Python, data processing, visualization, statistics and machine learning.",
+
+        code:
+`import pandas as pd
+
+data = {
+    "Student": ["A", "B", "C"],
+    "Marks": [80, 90, 70]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+print("Average:",
+      df["Marks"].mean())`,
+
+        question:
+            "Which Pandas method calculates the average of a numeric column?",
+
+        options: [
+            "mean()",
+            "averageData()",
+            "avg()",
+            "calculate()"
+        ],
+
+        answer: 0
+    }
+
+];
+
+
+/* =====================================================
+   COURSE STATE
+===================================================== */
+
+let currentLesson = 1;
+
+let selectedOption = null;
+
+let answeredCurrent = false;
+
+
+/* =====================================================
+   SAFE LOCAL STORAGE
+===================================================== */
+
+function readJSON(key, fallback) {
+
+    try {
+
+        const value =
+            localStorage.getItem(key);
+
+        return value
+            ? JSON.parse(value)
+            : fallback;
+
+    } catch (error) {
+
+        return fallback;
+
+    }
+}
+
+
+function getCompletedLessons() {
+
+    return readJSON(
+        "dataScienceCompletedLessonIds",
+        []
+    );
+
+}
+
+
+function getScores() {
+
+    return readJSON(
+        "dataScienceLessonScores",
+        {}
+    );
+
+}
+
+
+/* =====================================================
+   CERTIFICATE DATA
+===================================================== */
+
+function createDataScienceCertificateDetails() {
+
+    if (
+        !localStorage.getItem(
+            "dataScienceCertificateDate"
+        )
+    ) {
+
+        localStorage.setItem(
+            "dataScienceCertificateDate",
+            new Date().toLocaleDateString()
+        );
+
+    }
+
+
+    if (
+        !localStorage.getItem(
+            "dataScienceCertificateId"
+        )
+    ) {
+
+        localStorage.setItem(
+            "dataScienceCertificateId",
+            "DS-" +
+            Date.now().toString().slice(-8)
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   LESSON LIST
+===================================================== */
+
+function renderLessonList() {
+
+    const list =
+        document.getElementById("lessonList");
+
+    const completed =
+        getCompletedLessons();
+
+    list.innerHTML = "";
+
+
+    lessons.forEach((lesson, index) => {
+
+        const lessonNumber =
+            index + 1;
+
+        const button =
+            document.createElement("div");
+
+        button.className =
+            "lesson";
+
+
+        if (
+            lessonNumber ===
+            currentLesson
+        ) {
+
+            button.classList.add(
+                "active"
+            );
+
+        }
+
+
+        if (
+            completed.includes(
+                lessonNumber
+            )
+        ) {
+
+            button.classList.add(
+                "completed"
+            );
+
+        }
+
+
+        button.innerHTML =
+            completed.includes(
+                lessonNumber
+            )
+
+            ? `✓ Lesson ${lessonNumber}: ${lesson.title}`
+
+            : `Lesson ${lessonNumber}: ${lesson.title}`;
+
+
+        button.onclick = function() {
+
+            currentLesson =
+                lessonNumber;
+
+            selectedOption =
+                null;
+
+            answeredCurrent =
+                false;
+
+            renderLessonList();
+
+            renderLesson();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        };
+
+
+        list.appendChild(button);
+
+    });
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+    const completed =
+        getCompletedLessons();
+
+
+    const percentage =
+        Math.round(
+            (completed.length /
+                lessons.length) *
+            100
+        );
+
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        percentage + "%";
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        percentage + "%";
+
+}
+
+
+/* =====================================================
+   RENDER LESSON
+===================================================== */
+
+function renderLesson() {
+
+    const area =
+        document.getElementById(
+            "lessonArea"
+        );
+
+    const lesson =
+        lessons[currentLesson - 1];
+
+    const completed =
+        getCompletedLessons();
+
+
+    selectedOption = null;
+
+    answeredCurrent = false;
+
+
+    area.innerHTML = `
+
+        <div class="lesson-card">
+
+            <div class="lesson-number">
+                LESSON ${currentLesson} OF ${lessons.length}
+            </div>
+
+            <h2>
+                ${lesson.title}
+            </h2>
+
+            <div class="explanation">
+                ${lesson.explanation}
+            </div>
+
+            <div class="code-box">
+
+                <pre>${escapeHTML(
+                    lesson.code
+                )}</pre>
+
+            </div>
+
+
+            <div class="quiz">
+
+                <h3>
+                    📝 Quick Quiz
+                </h3>
+
+                <p style="
+                    color:#aaa;
+                    margin-bottom:15px;
+                ">
+                    ${lesson.question}
+                </p>
+
+
+                <div id="options">
+
+                    ${lesson.options
+                        .map(
+                            (option, index) => `
+
+                        <div
+                            class="option"
+                            data-index="${index}"
+                            onclick="selectOption(${index})">
+
+                            ${String.fromCharCode(
+                                65 + index
+                            )}.
+                            ${option}
+
+                        </div>
+
+                    `
+                        )
+                        .join("")}
+
+                </div>
+
+
+                <button
+                    class="check-btn"
+                    onclick="checkAnswer()">
+
+                    Check Answer
+
+                </button>
+
+
+                <div
+                    id="feedback"
+                    class="feedback">
+                </div>
+
+
+                <div
+                    id="nextContainer"
+                    class="next-container">
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    /* Completed lesson message */
+
+    if (
+        completed.includes(
+            currentLesson
+        )
+    ) {
+
+        const feedback =
+            document.getElementById(
+                "feedback"
+            );
+
+        feedback.textContent =
+            "✓ You have already completed this lesson.";
+
+        feedback.className =
+            "feedback correct-feedback";
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text) {
+
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =====================================================
+   SELECT OPTION
+===================================================== */
+
+function selectOption(index) {
+
+    if (answeredCurrent) {
+        return;
+    }
+
+
+    selectedOption =
+        index;
+
+
+    document
+        .querySelectorAll(".option")
+        .forEach(option => {
+
+            option.classList.remove(
+                "selected"
+            );
+
+        });
+
+
+    const selected =
+        document.querySelector(
+            `.option[data-index="${index}"]`
+        );
+
+
+    if (selected) {
+
+        selected.classList.add(
+            "selected"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CHECK ANSWER
+===================================================== */
+
+function checkAnswer() {
+
+    if (
+        selectedOption ===
+        null
+    ) {
+
+        alert(
+            "Please select an answer first."
+        );
+
+        return;
+
+    }
+
+
+    if (answeredCurrent) {
+        return;
+    }
+
+
+    const lesson =
+        lessons[currentLesson - 1];
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+    const options =
+        document.querySelectorAll(
+            ".option"
+        );
+
+
+    answeredCurrent = true;
+
+
+    options.forEach(option => {
+
+        const index =
+            Number(
+                option.dataset.index
+            );
+
+
+        if (
+            index ===
+            lesson.answer
+        ) {
+
+            option.classList.add(
+                "correct"
+            );
+
+        }
+
+
+        if (
+            index === selectedOption &&
+            selectedOption !==
+            lesson.answer
+        ) {
+
+            option.classList.add(
+                "wrong"
+            );
+
+        }
+
+    });
+
+
+    /* CORRECT */
+
+    if (
+        selectedOption ===
+        lesson.answer
+    ) {
+
+        feedback.textContent =
+            "✓ Correct! Great job. This lesson is completed.";
+
+        feedback.className =
+            "feedback correct-feedback";
+
+
+        completeLesson();
+
+    }
+
+    /* WRONG */
+
+    else {
+
+        feedback.textContent =
+            "✗ Incorrect. Please review the lesson and try again.";
+
+        feedback.className =
+            "feedback wrong-feedback";
+
+
+        answeredCurrent = false;
+
+    }
+
+}
+
+
+/* =====================================================
+   COMPLETE LESSON
+===================================================== */
+
+function completeLesson() {
+
+    let completed =
+        getCompletedLessons();
+
+    let scores =
+        getScores();
+
+
+    /*
+       IMPORTANT:
+       Prevent duplicate completion
+    */
+
+    if (
+        !completed.includes(
+            currentLesson
+        )
+    ) {
+
+        completed.push(
+            currentLesson
+        );
+
+
+        localStorage.setItem(
+            "dataScienceCompletedLessonIds",
+            JSON.stringify(
+                completed
+            )
+        );
+
+
+        scores[currentLesson] = 1;
+
+
+        localStorage.setItem(
+            "dataScienceLessonScores",
+            JSON.stringify(
+                scores
+            )
+        );
+
+    }
+
+
+    renderLessonList();
+
+    updateProgress();
+
+
+    const nextContainer =
+        document.getElementById(
+            "nextContainer"
+        );
+
+
+    /* MORE LESSONS */
+
+    if (
+        currentLesson <
+        lessons.length
+    ) {
+
+        nextContainer.innerHTML = `
+
+            <button
+                class="next-btn"
+                onclick="nextLesson()">
+
+                Next Lesson →
+
+            </button>
+
+        `;
+
+    }
+
+    /* ALL LESSONS COMPLETE */
+
+    else {
+
+        createDataScienceCertificateDetails();
+
+
+        nextContainer.innerHTML = `
+
+            <button
+                class="next-btn"
+                onclick="showFinalResult()">
+
+                🏆 View Final Result
+
+            </button>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   NEXT LESSON
+===================================================== */
+
+function nextLesson() {
+
+    if (
+        currentLesson <
+        lessons.length
+    ) {
+
+        currentLesson++;
+
+        selectedOption =
+            null;
+
+        answeredCurrent =
+            false;
+
+        renderLessonList();
+
+        renderLesson();
+
+        updateProgress();
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+    else {
+
+        showFinalResult();
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL RESULT
+===================================================== */
+
+function showFinalResult() {
+
+    const completed =
+        getCompletedLessons();
+
+    const scores =
+        getScores();
+
+
+    if (
+        completed.length <
+        lessons.length
+    ) {
+
+        alert(
+            "Please complete all 15 lessons first."
+        );
+
+        return;
+
+    }
+
+
+    createDataScienceCertificateDetails();
+
+
+    let totalScore = 0;
+
+
+    for (
+        let i = 1;
+        i <= lessons.length;
+        i++
+    ) {
+
+        if (
+            scores[i] !== undefined
+        ) {
+
+            totalScore +=
+                Number(scores[i]);
+
+        }
+
+    }
+
+
+    let performance;
+
+
+    if (
+        totalScore >= 13
+    ) {
+
+        performance =
+            "Excellent! 🌟";
+
+    }
+
+    else if (
+        totalScore >= 10
+    ) {
+
+        performance =
+            "Very Good! 👏";
+
+    }
+
+    else if (
+        totalScore >= 8
+    ) {
+
+        performance =
+            "Good Work! 👍";
+
+    }
+
+    else {
+
+        performance =
+            "Keep Practising! 💪";
+
+    }
+
+
+    document.getElementById(
+        "lessonArea"
+    ).innerHTML = `
+
+        <div class="final-result">
+
+            <div class="emoji">
+                🎉
+            </div>
+
+            <h2>
+                Data Science Course Completed!
+            </h2>
+
+            <p>
+                You successfully completed
+                all ${lessons.length}
+                Data Science lessons.
+            </p>
+
+
+            <p style="
+                margin-top:20px;
+                font-size:22px;
+                color:#8c7cff;
+                font-weight:800;
+            ">
+
+                Score:
+                ${totalScore}
+                /
+                ${lessons.length}
+
+            </p>
+
+
+            <p>
+                ${performance}
+            </p>
+
+
+            <p style="
+                margin-top:18px;
+                color:#63e68a;
+                font-weight:700;
+            ">
+
+                ✓ Certificate Unlocked
+
+            </p>
+
+
+            <a
+                href="data-science-certificate.html"
+                class="certificate-btn">
+
+                🎓 View Data Science Certificate
+
+            </a>
+
+
+            <br>
+
+
+            <a
+                href="dashboard.html"
+                class="dashboard-btn">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </div>
+
+    `;
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   CERTIFICATE
+===================================================== */
+
+function viewCertificate() {
+
+    window.location.href =
+        "data-science-certificate.html";
+
+}
+
+
+/* =====================================================
+   INITIALISE
+===================================================== */
+
+function initialiseCourse() {
+
+    const completed =
+        getCompletedLessons();
+
+
+    /*
+       If already 15/15 from an
+       earlier session, make sure
+       certificate information exists.
+    */
+
+    if (
+        completed.length >=
+        lessons.length
+    ) {
+
+        createDataScienceCertificateDetails();
+
+    }
+
+
+    renderLessonList();
+
+    renderLesson();
+
+    updateProgress();
+
+}
+
+
+initialiseCourse();
+
+</script>
+
+</body>
+</html>

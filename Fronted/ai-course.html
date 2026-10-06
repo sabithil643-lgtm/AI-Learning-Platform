@@ -1,0 +1,2771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Learning Course | AI Learning Platform</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0b0b18;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            height: 70px;
+            padding: 0 30px;
+            background: rgba(17, 17, 35, 0.95);
+            border-bottom: 1px solid #29294a;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-btn {
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 9px;
+
+            color: white;
+            border: 1px solid #3a3a5d;
+            background: #1c1c32;
+
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .header-btn:hover {
+            background: #8b5cf6;
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MAIN LAYOUT
+        ========================== */
+
+        .course-layout {
+            display: grid;
+            grid-template-columns: 310px 1fr;
+
+            min-height: calc(100vh - 70px);
+        }
+
+
+        /* =========================
+           SIDEBAR
+        ========================== */
+
+        .sidebar {
+            background: #111122;
+            border-right: 1px solid #29294a;
+
+            padding: 25px 18px;
+
+            position: sticky;
+            top: 70px;
+
+            height: calc(100vh - 70px);
+
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 21px;
+            margin-bottom: 7px;
+        }
+
+        .sidebar-subtitle {
+            color: #9999b2;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           PROGRESS
+        ========================== */
+
+        .progress-container {
+            background: #1c1c32;
+            border: 1px solid #30304d;
+
+            border-radius: 12px;
+            padding: 15px;
+
+            margin-bottom: 22px;
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+
+            font-size: 13px;
+        }
+
+        .progress-percent {
+            color: #a78bfa;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+
+            background: #292940;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                #7c3aed,
+                #a855f7
+            );
+
+            border-radius: 10px;
+
+            transition: width 0.4s ease;
+        }
+
+
+        /* =========================
+           LESSON LIST
+        ========================== */
+
+        .lesson-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lesson {
+            width: 100%;
+            min-height: 48px;
+
+            padding: 13px 14px;
+            margin-bottom: 9px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            color: #d8d8df;
+
+            background: #22223b;
+
+            border: 1px solid #30304c;
+
+            display: flex;
+            align-items: center;
+
+            transition: 0.2s ease;
+
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .lesson:hover {
+            background: #2c2c4a;
+            border-color: #6d5ce7;
+
+            transform: translateX(3px);
+        }
+
+        .lesson.active {
+            background: #7c3aed;
+            color: white;
+            border-color: #7c3aed;
+        }
+
+        .lesson.completed {
+            background: #22223b;
+            color: #d8d8df;
+
+            border: 1px solid #2ecc71;
+        }
+
+        .lesson.active.completed {
+            background: #7c3aed;
+            color: white;
+            border-color: #7c3aed;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================== */
+
+        .content {
+            padding: 40px;
+
+            max-width: 1000px;
+            width: 100%;
+
+            margin: auto;
+        }
+
+        .course-heading {
+            margin-bottom: 30px;
+        }
+
+        .course-heading .tag {
+            display: inline-block;
+
+            padding: 7px 12px;
+
+            background: rgba(124, 58, 237, 0.15);
+
+            color: #b794ff;
+
+            border: 1px solid rgba(124, 58, 237, 0.4);
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            margin-bottom: 14px;
+        }
+
+        .course-heading h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .course-heading p {
+            color: #a4a4bb;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           LESSON CARD
+        ========================== */
+
+        .lesson-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #15152b,
+                    #101020
+                );
+
+            border: 1px solid #2b2b48;
+
+            border-radius: 18px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .lesson-number {
+            color: #a78bfa;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        .lesson-card h2 {
+            font-size: 29px;
+
+            margin-bottom: 20px;
+        }
+
+        .lesson-card p {
+            color: #c1c1d1;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+        .lesson-card h3 {
+            margin-top: 28px;
+            margin-bottom: 12px;
+
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           CODE BOX
+        ========================== */
+
+        .code-box {
+            background: #080810;
+
+            border: 1px solid #303047;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            margin: 18px 0;
+
+            overflow-x: auto;
+        }
+
+        .code-box pre {
+            color: #c4b5fd;
+
+            font-family: Consolas, monospace;
+
+            line-height: 1.7;
+
+            white-space: pre-wrap;
+        }
+
+
+        /* =========================
+           KEY POINTS
+        ========================== */
+
+        .points {
+            background: rgba(124, 58, 237, 0.08);
+
+            border-left: 4px solid #8b5cf6;
+
+            padding: 18px 20px;
+
+            border-radius: 10px;
+
+            margin-top: 20px;
+        }
+
+        .points li {
+            color: #d2d2df;
+
+            margin: 9px 0;
+
+            margin-left: 18px;
+        }
+
+
+        /* =========================
+           QUIZ
+        ========================== */
+
+        .quiz-box {
+            margin-top: 30px;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            background: #19192e;
+
+            border: 1px solid #30304c;
+        }
+
+        .quiz-box h3 {
+            margin-top: 0;
+
+            font-size: 21px;
+        }
+
+        .question {
+            color: #eeeeff;
+
+            margin-bottom: 18px;
+
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .option {
+            padding: 14px 16px;
+
+            background: #23233c;
+
+            border: 1px solid #343452;
+
+            border-radius: 10px;
+
+            color: #dddded;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        .option:hover {
+            background: #303052;
+
+            border-color: #8b5cf6;
+        }
+
+        .option.selected {
+            background: #33245e;
+
+            border-color: #9b6cff;
+        }
+
+        .option.disabled {
+            cursor: not-allowed;
+
+            opacity: 0.65;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .submit-btn,
+        .next-btn,
+        .dashboard-btn,
+        .certificate-btn {
+
+            margin-top: 18px;
+
+            padding: 12px 20px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .submit-btn {
+            background: #7c3aed;
+        }
+
+        .next-btn {
+            background: #2563eb;
+        }
+
+        .dashboard-btn {
+            background: #303047;
+        }
+
+        .certificate-btn {
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #a855f7
+                );
+
+            padding: 14px 25px;
+
+            font-size: 15px;
+        }
+
+        .submit-btn:hover,
+        .next-btn:hover,
+        .dashboard-btn:hover,
+        .certificate-btn:hover {
+
+            transform: translateY(-2px);
+
+            opacity: 0.9;
+        }
+
+        .submit-btn:disabled {
+            cursor: not-allowed;
+
+            opacity: 0.5;
+
+            transform: none;
+        }
+
+
+        /* =========================
+           FEEDBACK
+        ========================== */
+
+        .feedback {
+            margin-top: 15px;
+
+            padding: 13px;
+
+            border-radius: 9px;
+
+            display: none;
+
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            display: block;
+
+            background: rgba(46, 204, 113, 0.12);
+
+            border: 1px solid #2ecc71;
+
+            color: #72f5a5;
+        }
+
+        .feedback.wrong {
+            display: block;
+
+            background: rgba(231, 76, 60, 0.12);
+
+            border: 1px solid #e74c3c;
+
+            color: #ff8f85;
+        }
+
+
+        /* =========================
+           COMPLETED MESSAGE
+        ========================== */
+
+        .completed-message {
+            margin-top: 18px;
+
+            padding: 14px 16px;
+
+            border-radius: 10px;
+
+            background: rgba(46, 204, 113, 0.10);
+
+            border: 1px solid #2ecc71;
+
+            color: #72f5a5;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FINAL RESULT
+        ========================== */
+
+        .final-result {
+            text-align: center;
+
+            padding: 50px 20px;
+        }
+
+        .final-result h2 {
+            font-size: 34px;
+
+            color: #c4b5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .final-result p {
+            color: #bdbdd0;
+        }
+
+        .final-score {
+            font-size: 70px;
+
+            font-weight: bold;
+
+            margin: 25px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8b5cf6,
+                    #c084fc
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            .course-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+
+                top: 0;
+
+                height: auto;
+
+                border-right: none;
+
+                border-bottom: 1px solid #29294a;
+            }
+
+            .lesson-list {
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 8px;
+            }
+
+            .lesson {
+                margin-bottom: 0;
+            }
+
+            .content {
+                padding: 25px 18px;
+            }
+
+            .course-heading h1 {
+                font-size: 30px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .header-btn {
+                padding: 8px 10px;
+
+                font-size: 12px;
+            }
+
+            .lesson-list {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson-card {
+                padding: 22px;
+            }
+
+            .lesson-card h2 {
+                font-size: 24px;
+            }
+
+            .final-score {
+                font-size: 55px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================== -->
+
+<header>
+
+    <div class="logo">
+        AI<span>Learning</span>
+    </div>
+
+    <div class="header-buttons">
+
+        <a
+            href="dashboard.html"
+            class="header-btn"
+        >
+            Dashboard
+        </a>
+
+        <a
+            href="index.html"
+            class="header-btn"
+        >
+            Home
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN COURSE LAYOUT
+========================== -->
+
+<div class="course-layout">
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <h2>
+            🤖 AI Course
+        </h2>
+
+        <p class="sidebar-subtitle">
+            Artificial Intelligence
+        </p>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-container">
+
+            <div class="progress-top">
+
+                <span>
+                    Course Progress
+                </span>
+
+                <span
+                    class="progress-percent"
+                    id="progressPercent"
+                >
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LESSON LIST -->
+
+        <div
+            class="lesson-list"
+            id="lessonList"
+        ></div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="content">
+
+
+        <div class="course-heading">
+
+            <span class="tag">
+                🤖 AI & TECHNOLOGY
+            </span>
+
+            <h1>
+                Artificial Intelligence
+            </h1>
+
+            <p>
+                Learn the fundamentals of Artificial Intelligence,
+                Machine Learning, Neural Networks, Generative AI
+                and modern AI applications.
+            </p>
+
+        </div>
+
+
+        <div id="lessonContent"></div>
+
+
+    </main>
+
+</div>
+
+
+
+<script>
+
+
+/* ==========================================
+   AI COURSE LESSON DATA
+========================================== */
+
+const lessons = [
+
+    {
+        id: 1,
+
+        title:
+            "Introduction to Artificial Intelligence",
+
+        content: `
+
+            <p>
+                Artificial Intelligence (AI) is a branch of computer
+                science that focuses on creating machines and software
+                that can perform tasks that normally require human
+                intelligence.
+            </p>
+
+            <p>
+                AI systems can learn from information, recognize
+                patterns, understand language, make decisions and
+                solve problems.
+            </p>
+
+            <h3>
+                Examples of AI
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Voice assistants</li>
+
+                    <li>Recommendation systems</li>
+
+                    <li>Self-driving technology</li>
+
+                    <li>Chatbots</li>
+
+                    <li>Image recognition</li>
+
+                </ul>
+
+            </div>
+
+        `,
+
+        question:
+            "What does AI mainly try to create?",
+
+        options: [
+
+            "Machines that can perform intelligent tasks",
+
+            "Only computer games",
+
+            "Only websites",
+
+            "Only databases"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 2,
+
+        title:
+            "AI vs Machine Learning",
+
+        content: `
+
+            <p>
+                Artificial Intelligence is the larger concept of
+                creating intelligent machines.
+            </p>
+
+            <p>
+                Machine Learning is a subset of AI where computers
+                learn patterns from data instead of being explicitly
+                programmed for every situation.
+            </p>
+
+            <div class="code-box">
+
+<pre>
+AI
+ └── Machine Learning
+      └── Deep Learning
+</pre>
+
+            </div>
+
+            <h3>
+                Important Difference
+            </h3>
+
+            <p>
+                AI is the overall field, while Machine Learning is
+                one important approach used to build AI systems.
+            </p>
+
+        `,
+
+        question:
+            "Machine Learning is a subset of which field?",
+
+        options: [
+
+            "Artificial Intelligence",
+
+            "HTML",
+
+            "CSS",
+
+            "Networking"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 3,
+
+        title:
+            "Data and AI",
+
+        content: `
+
+            <p>
+                Data is one of the most important resources for
+                modern AI systems.
+            </p>
+
+            <p>
+                AI models use data to identify patterns and make
+                predictions or decisions.
+            </p>
+
+            <h3>
+                Types of Data
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Text data</li>
+
+                    <li>Images</li>
+
+                    <li>Audio</li>
+
+                    <li>Video</li>
+
+                    <li>Numbers and tables</li>
+
+                </ul>
+
+            </div>
+
+            <p>
+                Better quality data generally helps an AI system
+                produce more useful results.
+            </p>
+
+        `,
+
+        question:
+            "Why is data important in AI?",
+
+        options: [
+
+            "AI systems can learn patterns from data",
+
+            "Data is only used for decoration",
+
+            "Data replaces computers",
+
+            "Data creates websites automatically"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 4,
+
+        title:
+            "Basic Mathematics for AI",
+
+        content: `
+
+            <p>
+                Mathematics provides the foundation for many AI
+                and Machine Learning algorithms.
+            </p>
+
+            <h3>
+                Important Areas
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Statistics</li>
+
+                    <li>Probability</li>
+
+                    <li>Linear algebra</li>
+
+                    <li>Functions</li>
+
+                    <li>Basic calculus</li>
+
+                </ul>
+
+            </div>
+
+            <p>
+                Understanding basic mathematics helps learners
+                understand how AI models process and analyse data.
+            </p>
+
+        `,
+
+        question:
+            "Which mathematical area is commonly used in AI?",
+
+        options: [
+
+            "Statistics",
+
+            "Painting",
+
+            "Music theory only",
+
+            "Typography only"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 5,
+
+        title:
+            "Machine Learning Basics",
+
+        content: `
+
+            <p>
+                Machine Learning allows computers to learn patterns
+                from examples and data.
+            </p>
+
+            <h3>
+                Basic Machine Learning Process
+            </h3>
+
+            <div class="code-box">
+
+<pre>
+Collect Data
+     ↓
+Prepare Data
+     ↓
+Train Model
+     ↓
+Test Model
+     ↓
+Make Predictions
+</pre>
+
+            </div>
+
+            <p>
+                The trained model can then be used to make predictions
+                on new data.
+            </p>
+
+        `,
+
+        question:
+            "What does a Machine Learning model learn from?",
+
+        options: [
+
+            "Data",
+
+            "Only electricity",
+
+            "Only HTML",
+
+            "Only keyboard input"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 6,
+
+        title:
+            "Supervised Learning",
+
+        content: `
+
+            <p>
+                Supervised Learning uses labelled training data.
+                The model learns the relationship between input
+                information and known outputs.
+            </p>
+
+            <h3>
+                Examples
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Email spam detection</li>
+
+                    <li>House price prediction</li>
+
+                    <li>Image classification</li>
+
+                </ul>
+
+            </div>
+
+            <p>
+                During training, the model receives examples where
+                the correct answer is already known.
+            </p>
+
+        `,
+
+        question:
+            "What type of data does supervised learning use?",
+
+        options: [
+
+            "Labelled data",
+
+            "No data",
+
+            "Only audio",
+
+            "Only CSS"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 7,
+
+        title:
+            "Unsupervised Learning",
+
+        content: `
+
+            <p>
+                Unsupervised Learning works with data that does not
+                have predefined labels.
+            </p>
+
+            <p>
+                The algorithm attempts to discover hidden structures
+                and patterns within the data.
+            </p>
+
+            <h3>
+                Example
+            </h3>
+
+            <p>
+                A company can use clustering to group customers
+                according to similar behaviour.
+            </p>
+
+        `,
+
+        question:
+            "Does unsupervised learning normally require labelled data?",
+
+        options: [
+
+            "No",
+
+            "Yes, always",
+
+            "Only HTML labels",
+
+            "Only image labels"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 8,
+
+        title:
+            "Neural Networks",
+
+        content: `
+
+            <p>
+                Neural Networks are computing models inspired by
+                the way biological neurons process information.
+            </p>
+
+            <div class="code-box">
+
+<pre>
+Input Layer
+     ↓
+Hidden Layers
+     ↓
+Output Layer
+</pre>
+
+            </div>
+
+            <p>
+                Neural networks are widely used in image recognition,
+                speech processing, language applications and many
+                other AI tasks.
+            </p>
+
+        `,
+
+        question:
+            "What are the main layers of a basic neural network?",
+
+        options: [
+
+            "Input, Hidden and Output",
+
+            "HTML, CSS and JavaScript",
+
+            "Header, Body and Footer",
+
+            "Start, Stop and Exit"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 9,
+
+        title:
+            "Computer Vision",
+
+        content: `
+
+            <p>
+                Computer Vision is an area of AI that enables
+                computers to analyse and understand visual
+                information such as images and videos.
+            </p>
+
+            <h3>
+                Applications
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Face recognition</li>
+
+                    <li>Medical image analysis</li>
+
+                    <li>Object detection</li>
+
+                    <li>Autonomous vehicles</li>
+
+                    <li>Security systems</li>
+
+                </ul>
+
+            </div>
+
+        `,
+
+        question:
+            "What type of information does Computer Vision mainly process?",
+
+        options: [
+
+            "Images and videos",
+
+            "Only passwords",
+
+            "Only spreadsheets",
+
+            "Only HTML files"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 10,
+
+        title:
+            "Natural Language Processing",
+
+        content: `
+
+            <p>
+                Natural Language Processing (NLP) is a field of AI
+                that focuses on enabling computers to understand,
+                process and generate human language.
+            </p>
+
+            <h3>
+                Examples
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Chatbots</li>
+
+                    <li>Language translation</li>
+
+                    <li>Text summarization</li>
+
+                    <li>Speech recognition</li>
+
+                    <li>Sentiment analysis</li>
+
+                </ul>
+
+            </div>
+
+        `,
+
+        question:
+            "What does NLP mainly deal with?",
+
+        options: [
+
+            "Human language",
+
+            "Computer hardware only",
+
+            "Internet cables",
+
+            "Computer screens"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 11,
+
+        title:
+            "Generative AI",
+
+        content: `
+
+            <p>
+                Generative AI refers to AI systems that can create
+                new content based on patterns learned from data.
+            </p>
+
+            <h3>
+                Generative AI Can Create
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Text</li>
+
+                    <li>Images</li>
+
+                    <li>Audio</li>
+
+                    <li>Video</li>
+
+                    <li>Code</li>
+
+                </ul>
+
+            </div>
+
+            <p>
+                Generative AI is becoming an important technology
+                across education, business, software development
+                and creative industries.
+            </p>
+
+        `,
+
+        question:
+            "What can Generative AI create?",
+
+        options: [
+
+            "New content",
+
+            "Only computer hardware",
+
+            "Only electricity",
+
+            "Only network cables"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 12,
+
+        title:
+            "AI Chatbots",
+
+        content: `
+
+            <p>
+                AI chatbots are software applications that interact
+                with users using natural language.
+            </p>
+
+            <p>
+                Modern chatbots can answer questions, explain
+                concepts, generate content and assist users with
+                different tasks.
+            </p>
+
+            <h3>
+                Common Components
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Natural Language Processing</li>
+
+                    <li>Language models</li>
+
+                    <li>Conversation management</li>
+
+                    <li>Knowledge sources</li>
+
+                </ul>
+
+            </div>
+
+        `,
+
+        question:
+            "What is the main purpose of an AI chatbot?",
+
+        options: [
+
+            "To communicate with users using natural language",
+
+            "To replace the computer monitor",
+
+            "To create electricity",
+
+            "To repair keyboards"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 13,
+
+        title:
+            "AI Ethics and Responsible AI",
+
+        content: `
+
+            <p>
+                Responsible AI focuses on developing and using
+                artificial intelligence in a safe, fair and
+                responsible way.
+            </p>
+
+            <h3>
+                Important Principles
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Fairness</li>
+
+                    <li>Privacy</li>
+
+                    <li>Transparency</li>
+
+                    <li>Security</li>
+
+                    <li>Human oversight</li>
+
+                </ul>
+
+            </div>
+
+            <p>
+                Developers should consider the possible impact of
+                AI systems on people and society.
+            </p>
+
+        `,
+
+        question:
+            "Which is an important Responsible AI principle?",
+
+        options: [
+
+            "Fairness",
+
+            "Ignoring privacy",
+
+            "Removing security",
+
+            "Hiding all information"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 14,
+
+        title:
+            "AI Applications and Future",
+
+        content: `
+
+            <p>
+                Artificial Intelligence is being used in many
+                industries and its applications continue to grow.
+            </p>
+
+            <h3>
+                Major Applications
+            </h3>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Healthcare</li>
+
+                    <li>Education</li>
+
+                    <li>Finance</li>
+
+                    <li>Transportation</li>
+
+                    <li>Cybersecurity</li>
+
+                    <li>Entertainment</li>
+
+                </ul>
+
+            </div>
+
+            <p>
+                Future AI systems are expected to become more useful,
+                efficient and integrated into everyday technology.
+            </p>
+
+        `,
+
+        question:
+            "Where can AI be used?",
+
+        options: [
+
+            "Many different industries",
+
+            "Only schools",
+
+            "Only games",
+
+            "Only banks"
+
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        id: 15,
+
+        title:
+            "Final AI Challenge",
+
+        content: `
+
+            <p>
+                🎉 Congratulations! You have reached the final
+                lesson of the Artificial Intelligence course.
+            </p>
+
+            <p>
+                You have explored AI fundamentals, Machine Learning,
+                neural networks, Computer Vision, NLP, Generative AI
+                and responsible AI.
+            </p>
+
+            <div class="points">
+
+                <ul>
+
+                    <li>Review the previous lessons.</li>
+
+                    <li>Think about real-world AI applications.</li>
+
+                    <li>Complete the final challenge.</li>
+
+                    <li>Check your final course score.</li>
+
+                </ul>
+
+            </div>
+
+        `,
+
+        question:
+            "Which technology is a major area of modern AI?",
+
+        options: [
+
+            "Machine Learning",
+
+            "Paper printing only",
+
+            "Manual typing only",
+
+            "Traditional filing only"
+
+        ],
+
+        answer: 0
+    }
+
+];
+
+
+/* ==========================================
+   LOCAL STORAGE FUNCTIONS
+========================================== */
+
+function getCompletedLessons() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "aiCompletedLessonIds"
+            ) || "[]"
+        );
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+function getScores() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "aiLessonScores"
+            ) || "{}"
+        );
+
+    } catch (error) {
+
+        return {};
+
+    }
+
+}
+
+
+function saveCompletedLessons(data) {
+
+    localStorage.setItem(
+        "aiCompletedLessonIds",
+        JSON.stringify(data)
+    );
+
+}
+
+
+function saveScores(data) {
+
+    localStorage.setItem(
+        "aiLessonScores",
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* ==========================================
+   CERTIFICATE INFORMATION
+========================================== */
+
+function createCertificateDetails() {
+
+    const completed =
+        getCompletedLessons();
+
+    if (completed.length !== lessons.length) {
+        return;
+    }
+
+
+    /* Certificate date */
+
+    if (!localStorage.getItem("aiCertificateDate")) {
+
+        const today =
+            new Date();
+
+        const date =
+            today.toLocaleDateString(
+                "en-GB"
+            );
+
+        localStorage.setItem(
+            "aiCertificateDate",
+            date
+        );
+
+    }
+
+
+    /* Certificate ID */
+
+    if (!localStorage.getItem("aiCertificateId")) {
+
+        const randomNumber =
+            Math.floor(
+                100000 +
+                Math.random() * 900000
+            );
+
+        const certificateId =
+            "AI-" + randomNumber;
+
+        localStorage.setItem(
+            "aiCertificateId",
+            certificateId
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   CURRENT LESSON
+========================================== */
+
+let currentLesson = 1;
+
+let selectedAnswer = null;
+
+let answeredCurrent = false;
+
+
+/* ==========================================
+   CREATE LESSON SIDEBAR
+========================================== */
+
+function renderLessonList() {
+
+    const list =
+        document.getElementById(
+            "lessonList"
+        );
+
+    const completed =
+        getCompletedLessons();
+
+    list.innerHTML = "";
+
+
+    lessons.forEach(lesson => {
+
+        const button =
+            document.createElement("div");
+
+        button.className = "lesson";
+
+
+        if (lesson.id === currentLesson) {
+
+            button.classList.add(
+                "active"
+            );
+
+        }
+
+
+        if (
+            completed.includes(
+                lesson.id
+            )
+        ) {
+
+            button.classList.add(
+                "completed"
+            );
+
+        }
+
+
+        button.textContent =
+            completed.includes(lesson.id)
+
+                ? "✓ Completed " +
+                  lesson.id +
+                  ". " +
+                  lesson.title
+
+                : lesson.id +
+                  ". " +
+                  lesson.title;
+
+
+        button.onclick = function () {
+
+            currentLesson =
+                lesson.id;
+
+            selectedAnswer =
+                null;
+
+            answeredCurrent =
+                false;
+
+            renderLessonList();
+
+            renderLesson();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        };
+
+
+        list.appendChild(button);
+
+    });
+
+}
+
+
+/* ==========================================
+   UPDATE PROGRESS
+========================================== */
+
+function updateProgress() {
+
+    const completed =
+        getCompletedLessons();
+
+
+    const percentage =
+        Math.round(
+            (
+                completed.length /
+                lessons.length
+            ) * 100
+        );
+
+
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+        percentage + "%";
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        percentage + "%";
+
+}
+
+
+/* ==========================================
+   RENDER LESSON
+========================================== */
+
+function renderLesson() {
+
+    const lesson =
+        lessons.find(
+            item =>
+                item.id === currentLesson
+        );
+
+
+    if (!lesson) {
+        return;
+    }
+
+
+    selectedAnswer = null;
+
+    answeredCurrent = false;
+
+
+    const completed =
+        getCompletedLessons();
+
+
+    const alreadyCompleted =
+        completed.includes(
+            lesson.id
+        );
+
+
+    const content =
+        document.getElementById(
+            "lessonContent"
+        );
+
+
+    content.innerHTML = `
+
+        <div class="lesson-card">
+
+            <div class="lesson-number">
+
+                Lesson ${lesson.id}
+                of ${lessons.length}
+
+            </div>
+
+
+            <h2>
+                ${lesson.title}
+            </h2>
+
+
+            ${lesson.content}
+
+
+            <div class="quiz-box">
+
+                <h3>
+                    📝 Quick Quiz
+                </h3>
+
+
+                <p class="question">
+
+                    <strong>
+                        ${lesson.question}
+                    </strong>
+
+                </p>
+
+
+                <div
+                    class="options"
+                    id="options"
+                >
+
+                    ${lesson.options.map(
+                        (option, index) => `
+
+                            <div
+                                class="option ${
+                                    alreadyCompleted
+                                        ? "disabled"
+                                        : ""
+                                }"
+                                ${
+                                    alreadyCompleted
+                                        ? ""
+                                        : `onclick="selectOption(${index})"`
+                                }
+                            >
+
+                                ${String.fromCharCode(
+                                    65 + index
+                                )}.
+                                ${option}
+
+                            </div>
+
+                    `
+                    ).join("")}
+
+                </div>
+
+
+                ${
+                    alreadyCompleted
+
+                    ? `
+
+                        <div class="completed-message">
+
+                            ✓ This lesson has already
+                            been completed successfully.
+
+                            <br>
+
+                            Your completion has been saved
+                            and will not be counted again.
+
+                        </div>
+
+                        <button
+                            class="next-btn"
+                            onclick="nextLesson()"
+                        >
+
+                            ${
+                                currentLesson ===
+                                lessons.length
+
+                                ? "View Final Result →"
+
+                                : "Next Lesson →"
+                            }
+
+                        </button>
+
+                    `
+
+                    : `
+
+                        <button
+                            class="submit-btn"
+                            id="submitButton"
+                            onclick="checkAnswer()"
+                        >
+
+                            Check Answer
+
+                        </button>
+
+                        <div
+                            id="feedback"
+                            class="feedback"
+                        ></div>
+
+                    `
+                }
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    if (alreadyCompleted) {
+
+        answeredCurrent = true;
+
+    }
+
+}
+
+
+/* ==========================================
+   SELECT ANSWER
+========================================== */
+
+function selectOption(index) {
+
+    if (answeredCurrent) {
+        return;
+    }
+
+
+    selectedAnswer =
+        index;
+
+
+    const options =
+        document.querySelectorAll(
+            ".option"
+        );
+
+
+    options.forEach(option => {
+
+        option.classList.remove(
+            "selected"
+        );
+
+    });
+
+
+    if (options[index]) {
+
+        options[index].classList.add(
+            "selected"
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   CHECK ANSWER
+========================================== */
+
+function checkAnswer() {
+
+    if (answeredCurrent) {
+        return;
+    }
+
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+
+    if (!feedback) {
+        return;
+    }
+
+
+    if (selectedAnswer === null) {
+
+        feedback.textContent =
+            "⚠️ Please select an answer first.";
+
+        feedback.className =
+            "feedback wrong";
+
+        return;
+
+    }
+
+
+    const lesson =
+        lessons.find(
+            item =>
+                item.id === currentLesson
+        );
+
+
+    if (!lesson) {
+        return;
+    }
+
+
+    if (
+        selectedAnswer ===
+        lesson.answer
+    ) {
+
+        answeredCurrent = true;
+
+
+        feedback.textContent =
+            "🎉 Correct! Excellent work.";
+
+
+        feedback.className =
+            "feedback correct";
+
+
+        const submitButton =
+            document.getElementById(
+                "submitButton"
+            );
+
+
+        if (submitButton) {
+
+            submitButton.disabled =
+                true;
+
+        }
+
+
+        completeLesson();
+
+    }
+
+    else {
+
+        feedback.textContent =
+            "❌ Incorrect. Please review the lesson and try again.";
+
+        feedback.className =
+            "feedback wrong";
+
+    }
+
+}
+
+
+/* ==========================================
+   COMPLETE LESSON
+========================================== */
+
+function completeLesson() {
+
+    let completed =
+        getCompletedLessons();
+
+
+    let scores =
+        getScores();
+
+
+    /*
+       IMPORTANT:
+       Prevent duplicate completion.
+    */
+
+    if (
+        completed.includes(
+            currentLesson
+        )
+    ) {
+
+        updateProgress();
+
+        renderLessonList();
+
+        return;
+
+    }
+
+
+    /*
+       Add lesson only once.
+    */
+
+    completed.push(
+        currentLesson
+    );
+
+
+    completed.sort(
+        (a, b) => a - b
+    );
+
+
+    /*
+       Every lesson currently
+       gives 1 point.
+    */
+
+    scores[currentLesson] = 1;
+
+
+    saveCompletedLessons(
+        completed
+    );
+
+
+    saveScores(
+        scores
+    );
+
+
+    updateProgress();
+
+    renderLessonList();
+
+
+    /*
+       Create certificate information
+       when all 15 lessons are done.
+    */
+
+    if (
+        completed.length ===
+        lessons.length
+    ) {
+
+        createCertificateDetails();
+
+
+        setTimeout(
+            () => {
+
+                showFinalResult();
+
+            },
+            700
+        );
+
+    }
+
+    else {
+
+        /*
+           Add Next Lesson button.
+        */
+
+        const quizBox =
+            document.querySelector(
+                ".quiz-box"
+            );
+
+
+        if (quizBox) {
+
+            const existingNext =
+                quizBox.querySelector(
+                    ".next-btn"
+                );
+
+
+            if (!existingNext) {
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.className =
+                    "next-btn";
+
+
+                button.textContent =
+                    "Next Lesson →";
+
+
+                button.onclick =
+                    nextLesson;
+
+
+                quizBox.appendChild(
+                    button
+                );
+
+            }
+
+        }
+
+    }
+
+}
+
+
+/* ==========================================
+   NEXT LESSON
+========================================== */
+
+function nextLesson() {
+
+    if (
+        currentLesson <
+        lessons.length
+    ) {
+
+        currentLesson++;
+
+        selectedAnswer =
+            null;
+
+        answeredCurrent =
+            false;
+
+
+        renderLessonList();
+
+        renderLesson();
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+    else {
+
+        showFinalResult();
+
+    }
+
+}
+
+
+/* ==========================================
+   FINAL RESULT
+========================================== */
+
+function showFinalResult() {
+
+    const completed =
+        getCompletedLessons();
+
+
+    /*
+       Only show final result after
+       all lessons are complete.
+    */
+
+    if (
+        completed.length !==
+        lessons.length
+    ) {
+
+        return;
+
+    }
+
+
+    const scores =
+        getScores();
+
+
+    let totalScore = 0;
+
+
+    for (
+        let i = 1;
+        i <= lessons.length;
+        i++
+    ) {
+
+        if (
+            scores[i] !== undefined
+        ) {
+
+            totalScore +=
+                Number(
+                    scores[i]
+                );
+
+        }
+
+    }
+
+
+    createCertificateDetails();
+
+
+    let resultMessage = "";
+
+
+    if (totalScore >= 13) {
+
+        resultMessage =
+            "Excellent! You have a strong understanding of Artificial Intelligence.";
+
+    }
+
+    else if (totalScore >= 10) {
+
+        resultMessage =
+            "Very Good! You have completed the AI learning path successfully.";
+
+    }
+
+    else if (totalScore >= 8) {
+
+        resultMessage =
+            "Good Work! Keep practising AI concepts to improve further.";
+
+    }
+
+    else {
+
+        resultMessage =
+            "Keep Practising! Review the lessons and strengthen your AI fundamentals.";
+
+    }
+
+
+    document.getElementById(
+        "lessonContent"
+    ).innerHTML = `
+
+        <div class="lesson-card">
+
+            <div class="final-result">
+
+                <h2>
+                    🎉 AI Course Completed!
+                </h2>
+
+
+                <p>
+                    Congratulations!
+                    You completed all
+                    ${lessons.length}
+                    AI lessons.
+                </p>
+
+
+                <div class="final-score">
+
+                    ${totalScore}
+                    /
+                    ${lessons.length}
+
+                </div>
+
+
+                <p>
+                    ${resultMessage}
+                </p>
+
+
+                <p style="margin-top:12px;">
+
+                    Completed Lessons:
+
+                    <strong>
+                        ${completed.length}
+                        /
+                        ${lessons.length}
+                    </strong>
+
+                </p>
+
+
+                <button
+                    class="certificate-btn"
+                    onclick="viewCertificate()"
+                >
+
+                    🏆 View AI Certificate
+
+                </button>
+
+
+                <br>
+
+
+                <button
+                    class="dashboard-btn"
+                    onclick="goDashboard()"
+                >
+
+                    ← Go to Dashboard
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ==========================================
+   CERTIFICATE
+========================================== */
+
+function viewCertificate() {
+
+    const completed =
+        getCompletedLessons();
+
+
+    if (
+        completed.length !==
+        lessons.length
+    ) {
+
+        alert(
+            "🔒 Please complete all 15 AI lessons to unlock your certificate."
+        );
+
+        return;
+
+    }
+
+
+    createCertificateDetails();
+
+
+    window.location.href =
+        "ai-certificate.html";
+
+}
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+function goDashboard() {
+
+    window.location.href =
+        "dashboard.html";
+
+}
+
+
+/* ==========================================
+   INITIAL LOAD
+========================================== */
+
+function initializeCourse() {
+
+    const completed =
+        getCompletedLessons();
+
+
+    updateProgress();
+
+    renderLessonList();
+
+
+    /*
+       If course is already completed,
+       create certificate information.
+    */
+
+    if (
+        completed.length ===
+        lessons.length
+    ) {
+
+        createCertificateDetails();
+
+        renderLesson();
+
+    }
+
+    else {
+
+        renderLesson();
+
+    }
+
+}
+
+
+initializeCourse();
+
+</script>
+
+
+</body>
+
+</html>

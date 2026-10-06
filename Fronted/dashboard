@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="dashboard.css">
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | AI Learn</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css">
+
+</head>
+
+<body class="dashboard-body">
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        🤖 AI<span>Learn</span>
+    </div>
+
+    <nav class="side-nav">
+
+        <a href="#" class="active">
+            🏠 Dashboard
+        </a>
+
+        <a href="#myCourses">
+            📚 My Courses
+        </a>
+
+        <a href="#progress">
+            📊 Progress
+        </a>
+
+        <a href="#achievements">
+            🏆 Achievements
+        </a>
+
+        <a href="#">
+            💻 Coding Practice
+        </a>
+
+        <a href="#">
+            📝 Quizzes
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <button id="dashboardTheme">
+            🌙 Theme
+        </button>
+
+        <button id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="dashboard-main">
+
+
+    <!-- TOP BAR -->
+
+    <header class="dashboard-header">
+
+        <div>
+
+            <span class="welcome-small">
+                STUDENT DASHBOARD
+            </span>
+
+            <h1>
+                <h1>
+    Welcome back,
+    <span id="dashboardUserName">Student</span>! 👋
+            </h1>
+            </h1>
+
+        </div>
+
+        <div class="student-profile">
+
+            <div class="profile-avatar">
+                S
+            </div>
+
+            <div>
+
+            <strong id="dashboardProfileName">
+                Student
+            </strong>
+
+                <small>
+                    Learner
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- STAT CARDS -->
+
+    <section class="dashboard-stats">
+
+        <div class="stat-card">
+
+            <span>📚</span>
+
+            <div>
+
+                <small>Enrolled Courses</small>
+
+                <strong>4</strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>📈</span>
+
+            <div>
+
+                <small>Overall Progress</small>
+
+                <strong>68%</strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🔥</span>
+
+            <div>
+
+                <small>Learning Streak</small>
+
+                <strong>7 Days</strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🏆</span>
+
+            <div>
+
+                <small>Achievements</small>
+
+                <strong>12</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MY COURSES -->
+
+    <section
+        id="myCourses"
+        class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    YOUR LEARNING
+                </span>
+
+                <h2>
+                    My Courses
+                </h2>
+
+            </div>
+
+            <button>
+                View All →
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-course-grid">
+
+
+            <div class="learning-card">
+
+                <div class="learning-icon">
+                    🐍
+                </div>
+
+                <div class="learning-content">
+
+                    <span>
+                        Programming
+                    </span>
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                    <p>
+                        16 of 24 lessons completed
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            style="width: 67%;">
+                        </div>
+
+                    </div>
+
+                    <div class="progress-text">
+                        67% Complete
+                    </div>
+
+                </div>
+
+                <button>
+                    Continue →
+                </button>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="learning-icon">
+                    🌐
+                </div>
+
+                <div class="learning-content">
+
+                    <span>
+                        Development
+                    </span>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        12 of 30 lessons completed
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            style="width: 40%;">
+                        </div>
+
+                    </div>
+
+                    <div class="progress-text">
+                        40% Complete
+                    </div>
+
+                </div>
+
+                <button>
+                    Continue →
+                </button>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="learning-icon">
+                    🤖
+                </div>
+
+                <div class="learning-content">
+
+                    <span>
+                        Artificial Intelligence
+                    </span>
+
+                    <h3>
+                        AI Fundamentals
+                    </h3>
+
+                    <p>
+                        18 of 28 lessons completed
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            style="width: 64%;">
+                        </div>
+
+                    </div>
+
+                    <div class="progress-text">
+                        64% Complete
+                    </div>
+
+                </div>
+
+                <button>
+                    Continue →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRESS -->
+
+    <section
+        id="progress"
+        class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    YOUR PERFORMANCE
+                </span>
+
+                <h2>
+                    Learning Progress
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-panel">
+
+            <div class="progress-circle">
+
+                <div>
+
+                    <strong>
+                        68%
+                    </strong>
+
+                    <span>
+                        Overall
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-details">
+
+                <h3>
+                    Keep going! 🚀
+                </h3>
+
+                <p>
+                    You're making great progress.
+                    Complete two more courses to unlock
+                    your next achievement.
+                </p>
+
+                <div class="skill-progress">
+
+                    <div>
+
+                        <span>
+                            Programming
+                        </span>
+
+                        <strong>
+                            75%
+                        </strong>
+
+                    </div>
+
+                    <div class="mini-progress">
+                        <div style="width:75%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-progress">
+
+                    <div>
+
+                        <span>
+                            Web Development
+                        </span>
+
+                        <strong>
+                            40%
+                        </strong>
+
+                    </div>
+
+                    <div class="mini-progress">
+                        <div style="width:40%;"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-progress">
+
+                    <div>
+
+                        <span>
+                            Artificial Intelligence
+                        </span>
+
+                        <strong>
+                            64%
+                        </strong>
+
+                    </div>
+
+                    <div class="mini-progress">
+                        <div style="width:64%;"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+
+    <section
+        id="achievements"
+        class="dashboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    MILESTONES
+                </span>
+
+                <h2>
+                    Achievements
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement-grid">
+
+            <div class="achievement-card">
+                <div>🔥</div>
+                <h3>7 Day Streak</h3>
+                <p>Keep learning every day.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div>💻</div>
+                <h3>First Code</h3>
+                <p>Completed your first coding task.</p>
+            </div>
+
+            <div class="achievement-card">
+                <div>🏆</div>
+                <h3>Quiz Master</h3>
+                <p>Scored above 90% in a quiz.</p>
+            </div>
+
+            <div class="achievement-card locked">
+                <div>🔒</div>
+                <h3>AI Expert</h3>
+                <p>Complete the AI course.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const activityList =
+        document.getElementById("loginActivityList");
+
+    const history =
+        JSON.parse(
+            localStorage.getItem("aiLearnLoginHistory") || "[]"
+        );
+
+    if (!activityList) return;
+
+    if (history.length === 0) {
+
+        activityList.innerHTML = `
+            <div class="empty-activity">
+                <div class="activity-icon">🔐</div>
+                <div>
+                    <strong>No login activity yet</strong>
+                    <p>Your recent login activity will appear here.</p>
+                </div>
+            </div>
+        `;
+
+        return;
+    }
+
+    activityList.innerHTML = "";
+
+    history
+        .slice()
+        .reverse()
+        .slice(0, 5)
+        .forEach(function (activity) {
+
+            const item = document.createElement("div");
+
+            item.className = "activity-item";
+
+            item.innerHTML = `
+                <div class="activity-icon">
+                    🔐
+                </div>
+
+                <div class="activity-details">
+                    <strong>
+                        ${activity.name || "Student"}
+                    </strong>
+
+                    <span>
+                        ${activity.email || "Unknown email"}
+                    </span>
+
+                    <small>
+                        ${activity.time || "Recently"}
+                    </small>
+                </div>
+
+                <div class="activity-status">
+                    <span>Active</span>
+                </div>
+            `;
+
+            activityList.appendChild(item);
+        });
+
+});
+</script>
+</body>
+</html>
+<section class="login-activity-section">
+
+    <div class="section-header">
+        <div>
+            <h2>Login Activity</h2>
+            <p>Recent account activity</p>
+        </div>
+    </div>
+
+    <div id="loginActivityList" class="login-activity-list">
+        <!-- Login activity will appear here -->
+    </div>
+
+</section>

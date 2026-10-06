@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Data Science Certificate | AI Learning Platform</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #eefaf7, #edf4ff, #f5f0ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            color: #172033;
+        }
+
+        /* ================= CERTIFICATE ================= */
+
+        .certificate {
+            width: 1100px;
+            max-width: 100%;
+            min-height: 720px;
+            background: rgba(255, 255, 255, 0.97);
+            border: 10px solid #dcefe9;
+            outline: 3px solid #70b8a5;
+            position: relative;
+            padding: 55px 70px;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(30, 60, 80, 0.15);
+            overflow: hidden;
+        }
+
+        .certificate::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 2px solid rgba(75, 160, 140, 0.15);
+            top: -120px;
+            left: -120px;
+        }
+
+        .certificate::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid rgba(80, 130, 190, 0.12);
+            bottom: -150px;
+            right: -150px;
+        }
+
+        /* ================= TOP ================= */
+
+        .academy {
+            font-size: 17px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            color: #438d7a;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 46px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #1d3140;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            letter-spacing: 6px;
+            color: #609080;
+            font-weight: bold;
+            margin-bottom: 35px;
+        }
+
+        .line {
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(to right, #62a994, #7296c7);
+            margin: 0 auto 30px;
+            border-radius: 10px;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .presented {
+            font-size: 16px;
+            color: #66717c;
+            margin-bottom: 12px;
+        }
+
+        .student-name {
+            font-size: 42px;
+            font-weight: 700;
+            color: #263d4d;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8db9ae;
+            display: inline-block;
+            padding: 0 40px 8px;
+        }
+
+        .description {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #5e6972;
+        }
+
+        .course-name {
+            font-size: 30px;
+            font-weight: bold;
+            color: #438d7a;
+            margin: 20px 0 8px;
+        }
+
+        .topics {
+            font-size: 15px;
+            color: #71808a;
+            margin-bottom: 25px;
+        }
+
+        /* ================= DETAILS ================= */
+
+        .details {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .detail-box {
+            min-width: 180px;
+            padding: 14px 22px;
+            background: #f1faf7;
+            border: 1px solid #d3e9e2;
+            border-radius: 10px;
+        }
+
+        .detail-label {
+            display: block;
+            font-size: 12px;
+            color: #718078;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .detail-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #29483f;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            margin-top: 32px;
+        }
+
+        .footer-name {
+            font-size: 14px;
+            color: #66747a;
+        }
+
+        .footer-name strong {
+            color: #438d7a;
+        }
+
+        .footer-line {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #87929a;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .actions {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        button,
+        .dashboard-btn {
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .print-btn {
+            background: #438d7a;
+            color: white;
+        }
+
+        .print-btn:hover {
+            background: #347363;
+            transform: translateY(-2px);
+        }
+
+        .dashboard-btn {
+            background: #e8eef7;
+            color: #38546c;
+        }
+
+        .dashboard-btn:hover {
+            background: #d9e3f1;
+            transform: translateY(-2px);
+        }
+
+        /* ================= LOCKED ================= */
+
+        .locked {
+            display: none;
+            width: 1100px;
+            max-width: 100%;
+            min-height: 500px;
+            background: white;
+            border-radius: 18px;
+            padding: 70px 30px;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(30, 60, 80, 0.15);
+        }
+
+        .locked-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .locked h1 {
+            color: #293b4b;
+            margin-bottom: 15px;
+        }
+
+        .locked p {
+            color: #697681;
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        .course-btn {
+            display: inline-block;
+            background: #438d7a;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .course-btn:hover {
+            background: #347363;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .certificate {
+                padding: 40px 25px;
+                min-height: auto;
+            }
+
+            .title {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+                letter-spacing: 3px;
+            }
+
+            .student-name {
+                font-size: 30px;
+                padding: 0 15px 8px;
+            }
+
+            .course-name {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .details {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .detail-box {
+                width: 90%;
+            }
+        }
+
+        /* ================= PRINT ================= */
+
+        @media print {
+
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .certificate {
+                width: 100%;
+                min-height: 100vh;
+                border: 10px solid #dcefe9;
+                outline: 3px solid #70b8a5;
+                box-shadow: none;
+            }
+
+            .actions {
+                display: none;
+            }
+
+            .locked {
+                display: none !important;
+            }
+
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= CERTIFICATE ================= -->
+
+    <div class="certificate" id="certificate">
+
+        <div class="academy">
+            AI Learning Platform
+        </div>
+
+        <div class="icon">
+            📊
+        </div>
+
+        <div class="title">
+            CERTIFICATE
+        </div>
+
+        <div class="subtitle">
+            OF ACHIEVEMENT
+        </div>
+
+        <div class="line"></div>
+
+        <div class="presented">
+            This certificate is proudly presented to
+        </div>
+
+        <div class="student-name" id="studentName">
+            Student
+        </div>
+
+        <div class="description">
+            This certificate recognizes the successful completion of the
+            <strong>Data Science</strong> learning program, demonstrating
+            dedication, knowledge, and practical understanding of
+            fundamental data science concepts.
+        </div>
+
+        <div class="course-name">
+            Data Science
+        </div>
+
+        <div class="topics">
+            Python • NumPy • Pandas • Data Visualization • Statistics • Machine Learning
+        </div>
+
+        <!-- DETAILS -->
+
+        <div class="details">
+
+            <div class="detail-box">
+                <span class="detail-label">
+                    Status
+                </span>
+
+                <span class="detail-value">
+                    Completed
+                </span>
+            </div>
+
+            <div class="detail-box">
+                <span class="detail-label">
+                    Lessons
+                </span>
+
+                <span class="detail-value">
+                    15 / 15
+                </span>
+            </div>
+
+            <div class="detail-box">
+                <span class="detail-label">
+                    Completion Date
+                </span>
+
+                <span class="detail-value" id="completionDate">
+                    —
+                </span>
+            </div>
+
+            <div class="detail-box">
+                <span class="detail-label">
+                    Certificate ID
+                </span>
+
+                <span class="detail-value" id="certificateId">
+                    —
+                </span>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            <div class="footer-name">
+                ✨ Designed & Developed by
+                <strong>Jeshan</strong>
+            </div>
+
+            <div class="footer-line">
+                Learn • Build • Innovate • Achieve 🚀
+            </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="actions">
+
+            <button class="print-btn" onclick="window.print()">
+                🖨️ Print / Save PDF
+            </button>
+
+            <a href="dashboard.html" class="dashboard-btn">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= LOCKED ================= -->
+
+    <div class="locked" id="lockedCertificate">
+
+        <div class="locked-icon">
+            🔒
+        </div>
+
+        <h1>
+            Data Science Certificate Locked
+        </h1>
+
+        <p>
+            Complete all 15 Data Science lessons to unlock your certificate.
+        </p>
+
+        <a href="data-science.html" class="course-btn">
+            📚 Continue Data Science Course
+        </a>
+
+        <br><br>
+
+        <a href="dashboard.html" class="dashboard-btn">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* Safely read JSON from localStorage */
+        function readJSON(key, fallback) {
+
+            try {
+
+                const value = localStorage.getItem(key);
+
+                return value ? JSON.parse(value) : fallback;
+
+            } catch (error) {
+
+                return fallback;
+
+            }
+
+        }
+
+
+        /* Get completed lessons */
+
+        const completedLessons =
+            readJSON("dataScienceCompletedLessonIds", []);
+
+
+        /* Check completion */
+
+        if (completedLessons.length < 15) {
+
+            document.getElementById("certificate").style.display = "none";
+
+            document.getElementById("lockedCertificate").style.display = "block";
+
+        }
+
+
+        /* Student name */
+
+        const savedName =
+            localStorage.getItem("studentName") ||
+            localStorage.getItem("userName") ||
+            localStorage.getItem("name") ||
+            localStorage.getItem("username") ||
+            "Student";
+
+
+        document.getElementById("studentName").textContent =
+            savedName;
+
+
+        /* Certificate date */
+
+        let certificateDate =
+            localStorage.getItem("dataScienceCertificateDate");
+
+
+        if (!certificateDate && completedLessons.length >= 15) {
+
+            certificateDate =
+                new Date().toLocaleDateString();
+
+            localStorage.setItem(
+                "dataScienceCertificateDate",
+                certificateDate
+            );
+
+        }
+
+
+        document.getElementById("completionDate").textContent =
+            certificateDate || "—";
+
+
+        /* Certificate ID */
+
+        let certificateId =
+            localStorage.getItem("dataScienceCertificateId");
+
+
+        if (!certificateId && completedLessons.length >= 15) {
+
+            certificateId =
+                "DS-" + Date.now().toString().slice(-8);
+
+            localStorage.setItem(
+                "dataScienceCertificateId",
+                certificateId
+            );
+
+        }
+
+
+        document.getElementById("certificateId").textContent =
+            certificateId || "—";
+
+    </script>
+
+</body>
+</html>

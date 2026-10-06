@@ -1,0 +1,4657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AI Learning Platform | Learn. Build. Grow.
+    </title>
+
+    <meta
+        name="description"
+        content="AI Learning Platform - Learn Python, Web Development, Artificial Intelligence and Data Science."
+    >
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #03040b;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           SPACE BACKGROUND
+        ===================================================== */
+
+        .space-background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    #17134a 0%,
+                    #08091b 32%,
+                    #03040b 72%
+                );
+        }
+
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .nebula-one {
+            width: 520px;
+            height: 520px;
+            background: #5d3fd3;
+            top: -180px;
+            left: -120px;
+
+            animation:
+                nebulaFloat
+                14s
+                ease-in-out
+                infinite
+                alternate;
+        }
+
+        .nebula-two {
+            width: 480px;
+            height: 480px;
+            background: #1549b9;
+            right: -160px;
+            top: 25%;
+
+            animation:
+                nebulaFloat
+                18s
+                ease-in-out
+                infinite
+                alternate-reverse;
+        }
+
+        .nebula-three {
+            width: 420px;
+            height: 420px;
+            background: #9d28d7;
+            left: 35%;
+            bottom: -220px;
+            opacity: 0.2;
+
+            animation:
+                nebulaFloat
+                20s
+                ease-in-out
+                infinite
+                alternate;
+        }
+
+        @keyframes nebulaFloat {
+
+            from {
+                transform:
+                    translate3d(
+                        -20px,
+                        -10px,
+                        0
+                    )
+                    scale(1);
+            }
+
+            to {
+                transform:
+                    translate3d(
+                        35px,
+                        30px,
+                        0
+                    )
+                    scale(1.15);
+            }
+        }
+
+
+        /* =====================================================
+           STARS
+        ===================================================== */
+
+        #starsCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* =====================================================
+           SHOOTING STARS
+        ===================================================== */
+
+        .shooting-star {
+            position: absolute;
+
+            width: 140px;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #ffffff,
+                    transparent
+                );
+
+            transform: rotate(-35deg);
+
+            opacity: 0;
+
+            filter:
+                drop-shadow(
+                    0 0 8px #ffffff
+                );
+
+            animation:
+                shootingStar
+                7s
+                linear
+                infinite;
+        }
+
+        .shooting-star.one {
+            top: 16%;
+            left: 75%;
+            animation-delay: 1s;
+        }
+
+        .shooting-star.two {
+            top: 35%;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
+        .shooting-star.three {
+            top: 58%;
+            left: 85%;
+            animation-delay: 7s;
+        }
+
+        @keyframes shootingStar {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translate(0, 0)
+                    rotate(-35deg);
+            }
+
+            8% {
+                opacity: 1;
+            }
+
+            18% {
+                opacity: 0;
+
+                transform:
+                    translate(-350px, 220px)
+                    rotate(-35deg);
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            position: fixed;
+
+            top: 16px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            width:
+                min(
+                    1180px,
+                    calc(100% - 30px)
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 14px 20px;
+
+            background:
+                rgba(
+                    12,
+                    13,
+                    31,
+                    0.68
+                );
+
+            backdrop-filter:
+                blur(22px);
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.10
+                );
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0, 0, 0, 0.35);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7567ff,
+                    #a45cff
+                );
+
+            box-shadow:
+                0 0 25px
+                rgba(
+                    117,
+                    103,
+                    255,
+                    0.5
+                );
+        }
+
+        .logo span {
+            color: #9c8dff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #b9bad0;
+            font-size: 14px;
+
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+
+            text-shadow:
+                0 0 15px
+                rgba(
+                    156,
+                    141,
+                    255,
+                    0.8
+                );
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 9px;
+        }
+
+        .nav-btn {
+            padding: 9px 15px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            border:
+                1px solid #343653;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.04
+                );
+
+            color: white;
+
+            transition: 0.25s;
+        }
+
+        .nav-btn:hover {
+            background: #6c5ce7;
+            border-color: #6c5ce7;
+
+            transform:
+                translateY(-2px);
+        }
+
+        .nav-btn.primary {
+            background: #6c5ce7;
+            border-color: #6c5ce7;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            width:
+                min(
+                    1200px,
+                    calc(100% - 40px)
+                );
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.05fr
+                0.95fr;
+
+            align-items: center;
+
+            gap: 40px;
+
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 13px;
+
+            border-radius: 50px;
+
+            background:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.12
+                );
+
+            border:
+                1px solid
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.35
+                );
+
+            color: #aaa0ff;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #8dffb3;
+
+            box-shadow:
+                0 0 12px #8dffb3;
+
+            animation:
+                pulse
+                1.5s
+                infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(
+                    48px,
+                    6vw,
+                    78px
+                );
+
+            line-height: 0.98;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #a99cff,
+                    #6c8cff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero p {
+            color: #a5a7bb;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            max-width: 650px;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 14px 22px;
+
+            border-radius: 11px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+
+            border:
+                1px solid #343653;
+        }
+
+        .hero-btn.primary {
+            background:
+                linear-gradient(
+                    135deg,
+                    #6c5ce7,
+                    #886cff
+                );
+
+            border-color: transparent;
+
+            box-shadow:
+                0 10px 35px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.28
+                );
+        }
+
+        .hero-btn.secondary {
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.04
+                );
+        }
+
+        .hero-btn:hover {
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.25
+                );
+        }
+
+
+        /* =====================================================
+           SPACE VISUAL
+        ===================================================== */
+
+        .hero-visual {
+            position: relative;
+
+            height: 580px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            perspective: 1000px;
+        }
+
+        .cosmic-core {
+            width: 160px;
+            height: 160px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #ffffff,
+                    #bdb3ff 8%,
+                    #735cff 35%,
+                    #3421a7 65%,
+                    #0a0822 100%
+                );
+
+            box-shadow:
+                0 0 35px #796cff,
+                0 0 90px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.65
+                ),
+                0 0 170px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.35
+                );
+
+            animation:
+                coreFloat
+                5s
+                ease-in-out
+                infinite;
+
+            z-index: 5;
+        }
+
+        @keyframes coreFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translateY(-16px)
+                    scale(1.04);
+            }
+        }
+
+        .orbit {
+            position: absolute;
+
+            width: 330px;
+            height: 150px;
+
+            border:
+                1px solid
+                rgba(
+                    164,
+                    147,
+                    255,
+                    0.35
+                );
+
+            border-radius: 50%;
+
+            transform:
+                rotate(-25deg);
+
+            animation:
+                orbitRotate
+                8s
+                linear
+                infinite;
+        }
+
+        .orbit.two {
+            width: 430px;
+            height: 190px;
+
+            transform:
+                rotate(35deg);
+
+            animation-duration: 12s;
+
+            animation-direction:
+                reverse;
+        }
+
+        .orbit.three {
+            width: 520px;
+            height: 230px;
+
+            transform:
+                rotate(70deg);
+
+            animation-duration: 17s;
+        }
+
+        @keyframes orbitRotate {
+
+            from {
+                transform:
+                    rotate(0deg)
+                    rotateX(65deg);
+            }
+
+            to {
+                transform:
+                    rotate(360deg)
+                    rotateX(65deg);
+            }
+        }
+
+        .planet {
+            position: absolute;
+
+            width: 25px;
+            height: 25px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 30% 25%,
+                    #ffffff,
+                    #74b9ff 25%,
+                    #3858d8 60%,
+                    #11134e
+                );
+
+            box-shadow:
+                0 0 20px #658bff;
+        }
+
+        .planet.one {
+            top: -12px;
+            left: 45%;
+        }
+
+        .planet.two {
+            bottom: 8px;
+            right: 15%;
+
+            width: 19px;
+            height: 19px;
+
+            background:
+                radial-gradient(
+                    circle at 30% 25%,
+                    #ffffff,
+                    #d69aff 25%,
+                    #7c3aed 60%,
+                    #241044
+                );
+        }
+
+        .planet.three {
+            top: 25%;
+            right: -5px;
+
+            width: 15px;
+            height: 15px;
+        }
+
+        .floating-code {
+            position: absolute;
+
+            padding: 12px 15px;
+
+            background:
+                rgba(
+                    12,
+                    13,
+                    31,
+                    0.75
+                );
+
+            border:
+                1px solid
+                rgba(
+                    156,
+                    141,
+                    255,
+                    0.25
+                );
+
+            backdrop-filter:
+                blur(15px);
+
+            border-radius: 10px;
+
+            color: #aaa0ff;
+
+            font-family:
+                Consolas,
+                monospace;
+
+            font-size: 12px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.3
+                );
+
+            animation:
+                codeFloat
+                4s
+                ease-in-out
+                infinite;
+        }
+
+        .floating-code.one {
+            top: 12%;
+            left: 4%;
+        }
+
+        .floating-code.two {
+            right: 2%;
+            top: 22%;
+
+            animation-delay: 1s;
+        }
+
+        .floating-code.three {
+            bottom: 16%;
+            left: 8%;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes codeFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px);
+            }
+        }
+
+
+        /* =====================================================
+           SECTION
+        ===================================================== */
+
+        section {
+            width:
+                min(
+                    1200px,
+                    calc(100% - 40px)
+                );
+
+            margin: auto;
+
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading span {
+            color: #9184ff;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform:
+                uppercase;
+        }
+
+        .section-heading h2 {
+            font-size:
+                clamp(
+                    32px,
+                    5vw,
+                    50px
+                );
+
+            margin-top: 10px;
+        }
+
+        .section-heading p {
+            color: #8f91a7;
+            margin-top: 12px;
+        }
+
+
+        /* =====================================================
+           COURSE CARDS
+        ===================================================== */
+
+        .courses-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+
+            perspective: 1200px;
+        }
+
+        .course-card {
+            position: relative;
+
+            min-height: 360px;
+
+            padding: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(
+                        26,
+                        27,
+                        53,
+                        0.9
+                    ),
+                    rgba(
+                        10,
+                        11,
+                        25,
+                        0.85
+                    )
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+
+            transform-style:
+                preserve-3d;
+        }
+
+        .course-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: -70px;
+            top: -70px;
+
+            border-radius: 50%;
+
+            background:
+                var(--glow);
+
+            filter: blur(60px);
+
+            opacity: 0.18;
+
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform:
+                translateY(-12px)
+                rotateX(3deg)
+                rotateY(-3deg);
+
+            border-color:
+                rgba(
+                    151,
+                    137,
+                    255,
+                    0.45
+                );
+
+            box-shadow:
+                0 30px 70px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.45
+                ),
+                0 0 40px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.12
+                );
+        }
+
+        .course-icon {
+            width: 58px;
+            height: 58px;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 28px;
+
+            background:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.13
+                );
+
+            border:
+                1px solid
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.25
+                );
+
+            margin-bottom: 22px;
+        }
+
+        .course-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            color: #9698ad;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+
+            min-height: 72px;
+        }
+
+        .course-status {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 6px 9px;
+
+            border-radius: 50px;
+
+            font-size: 11px;
+
+            color: #91e7ae;
+
+            background:
+                rgba(
+                    50,
+                    205,
+                    120,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    50,
+                    205,
+                    120,
+                    0.15
+                );
+        }
+
+        .course-btn {
+            display: block;
+
+            margin-top: 20px;
+
+            padding: 11px;
+
+            text-align: center;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6557df,
+                    #806dff
+                );
+
+            font-weight: 700;
+
+            font-size: 13px;
+
+            transition: 0.25s;
+        }
+
+        .course-btn:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.3
+                );
+        }
+
+
+        /* =====================================================
+           PLATFORM FEATURES
+        ===================================================== */
+
+        .features-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .feature-card {
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.025
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.07
+                );
+
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform:
+                translateY(-7px);
+
+            background:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.08
+                );
+
+            border-color:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.25
+                );
+        }
+
+        .feature-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #9294a9;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           LEARNING ANALYTICS
+        ===================================================== */
+
+        .analytics-wrapper {
+            display: grid;
+
+            grid-template-columns:
+                1.4fr
+                1fr;
+
+            gap: 20px;
+        }
+
+        .analytics-main,
+        .analytics-side {
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(
+                        27,
+                        28,
+                        56,
+                        0.85
+                    ),
+                    rgba(
+                        10,
+                        11,
+                        25,
+                        0.75
+                    )
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
+            box-shadow:
+                0 25px 60px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.25
+                );
+        }
+
+        .analytics-main h3,
+        .analytics-side h3 {
+            margin-bottom: 8px;
+        }
+
+        .analytics-subtitle {
+            color: #85889f;
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+        }
+
+        .progress-item {
+            margin-bottom: 22px;
+        }
+
+        .progress-header {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+        }
+
+        .progress-header span:first-child {
+            color: #d6d7e3;
+        }
+
+        .progress-header span:last-child {
+            color: #a99cff;
+            font-weight: 700;
+        }
+
+        .progress-track {
+            height: 9px;
+
+            border-radius: 50px;
+
+            background:
+                #17182c;
+
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+
+            width: 0%;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #6c5ce7,
+                    #a99cff
+                );
+
+            transition:
+                width 1s ease;
+        }
+
+        .analytics-stat-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 15px;
+        }
+
+        .analytics-stat {
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.15
+                );
+        }
+
+        .analytics-stat strong {
+            display: block;
+
+            font-size: 25px;
+
+            color: #a99cff;
+
+            margin-bottom: 4px;
+        }
+
+        .analytics-stat span {
+            color: #85889f;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           STREAK
+        ===================================================== */
+
+        .streak-box {
+            margin-top: 25px;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(
+                        255,
+                        109,
+                        67,
+                        0.12
+                    ),
+                    rgba(
+                        108,
+                        92,
+                        231,
+                        0.08
+                    )
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    130,
+                    90,
+                    0.15
+                );
+        }
+
+        .streak-title {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 15px;
+        }
+
+        .streak-title h3 {
+            margin: 0;
+        }
+
+        .streak-count {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .streak-days {
+            display: grid;
+
+            grid-template-columns:
+                repeat(7, 1fr);
+
+            gap: 7px;
+        }
+
+        .day-box {
+            padding: 9px 4px;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.04
+                );
+
+            color: #777b92;
+
+            font-size: 10px;
+        }
+
+        .day-box.active {
+            background:
+                rgba(
+                    255,
+                    119,
+                    76,
+                    0.18
+                );
+
+            color: #ffb49e;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    119,
+                    76,
+                    0.25
+                );
+        }
+
+
+        /* =====================================================
+           ACHIEVEMENTS
+        ===================================================== */
+
+        .achievements-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .achievement-card {
+            padding: 25px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.025
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.07
+                );
+
+            transition:
+                transform 0.3s,
+                border-color 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.3
+                );
+        }
+
+        .achievement-icon {
+            width: 68px;
+            height: 68px;
+
+            margin:
+                0 auto 15px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            font-size: 30px;
+
+            background:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.12
+                );
+
+            border:
+                1px solid
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.2
+                );
+        }
+
+        .achievement-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .achievement-card p {
+            color: #85889f;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        .achievement-status {
+            display: inline-block;
+
+            margin-top: 14px;
+
+            padding: 5px 10px;
+
+            border-radius: 50px;
+
+            font-size: 10px;
+
+            color: #91e7ae;
+
+            background:
+                rgba(
+                    50,
+                    205,
+                    120,
+                    0.08
+                );
+        }
+
+        .achievement-status.locked {
+            color: #85889f;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.04
+                );
+        }
+
+
+        /* =====================================================
+           LEARNING ROADMAP
+        ===================================================== */
+
+        .roadmap {
+            position: relative;
+
+            max-width: 900px;
+
+            margin:
+                0 auto;
+        }
+
+        .roadmap::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+            bottom: 0;
+
+            width: 2px;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                linear-gradient(
+                    #6c5ce7,
+                    rgba(
+                        108,
+                        92,
+                        231,
+                        0.1
+                    )
+                );
+        }
+
+        .roadmap-item {
+            position: relative;
+
+            width: 50%;
+
+            padding: 20px 35px;
+        }
+
+        .roadmap-item:nth-child(odd) {
+            left: 0;
+
+            text-align: right;
+        }
+
+        .roadmap-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .roadmap-dot {
+            position: absolute;
+
+            top: 27px;
+
+            width: 17px;
+            height: 17px;
+
+            border-radius: 50%;
+
+            background: #6c5ce7;
+
+            border:
+                3px solid #111228;
+
+            box-shadow:
+                0 0 18px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.7
+                );
+        }
+
+        .roadmap-item:nth-child(odd)
+        .roadmap-dot {
+            right: -9px;
+        }
+
+        .roadmap-item:nth-child(even)
+        .roadmap-dot {
+            left: -9px;
+        }
+
+        .roadmap-content {
+            padding: 22px;
+
+            border-radius: 16px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.025
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.07
+                );
+
+            transition: 0.3s;
+        }
+
+        .roadmap-content:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.3
+                );
+        }
+
+        .roadmap-content small {
+            color: #9184ff;
+
+            font-weight: 700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        .roadmap-content h3 {
+            margin: 7px 0;
+        }
+
+        .roadmap-content p {
+            color: #85889f;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           CODING PLAYGROUND
+        ===================================================== */
+
+        .playground {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 20px;
+        }
+
+        .editor-box,
+        .output-box {
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background:
+                #0a0b18;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
+            box-shadow:
+                0 20px 50px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.25
+                );
+        }
+
+        .editor-header {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 12px;
+        }
+
+        .editor-header span {
+            color: #9d91ff;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        .run-btn {
+            padding: 8px 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6c5ce7,
+                    #8b7cff
+                );
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+            font-size: 12px;
+
+            transition: 0.25s;
+        }
+
+        .run-btn:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.3
+                );
+        }
+
+        #codeEditor {
+            width: 100%;
+
+            min-height: 260px;
+
+            resize: vertical;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                #242642;
+
+            background:
+                #050610;
+
+            color: #d7d3ff;
+
+            font-family:
+                Consolas,
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            outline: none;
+        }
+
+        #codeEditor:focus {
+            border-color:
+                #6c5ce7;
+
+            box-shadow:
+                0 0 20px
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.12
+                );
+        }
+
+        .output-content {
+            min-height: 260px;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            background:
+                #050610;
+
+            border:
+                1px solid
+                #242642;
+
+            color: #8dffb3;
+
+            font-family:
+                Consolas,
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            white-space: pre-wrap;
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 44px;
+
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            color: #989aad;
+
+            line-height: 1.9;
+
+            margin-bottom: 12px;
+        }
+
+        .about-box {
+            padding: 35px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.025
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
+            box-shadow:
+                0 25px 70px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.25
+                );
+        }
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+        .stat {
+            padding: 18px;
+
+            background:
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.08
+                );
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                rgba(
+                    108,
+                    92,
+                    231,
+                    0.15
+                );
+        }
+
+        .stat strong {
+            display: block;
+
+            font-size: 25px;
+
+            color: #a99cff;
+
+            margin-bottom: 4px;
+        }
+
+        .stat span {
+            color: #888ba2;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.07
+                );
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            color: #71748b;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #9d91ff;
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .courses-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .achievements-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .hero p {
+                margin: auto;
+            }
+
+            .hero-buttons {
+                justify-content:
+                    center;
+            }
+
+            .hero-visual {
+                height: 470px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .analytics-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .playground {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .courses-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                top: 8px;
+            }
+
+            .nav-actions
+            .nav-btn:first-child {
+                display: none;
+            }
+
+            .hero {
+                width:
+                    min(
+                        100% - 25px,
+                        1200px
+                    );
+            }
+
+            section {
+                width:
+                    min(
+                        100% - 25px,
+                        1200px
+                    );
+
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-visual {
+                height: 390px;
+
+                transform:
+                    scale(0.8);
+            }
+
+            .cosmic-core {
+                width: 130px;
+                height: 130px;
+            }
+
+            .orbit {
+                transform:
+                    scale(0.8);
+            }
+
+            .about h2 {
+                font-size: 34px;
+            }
+
+            .roadmap::before {
+                left: 10px;
+            }
+
+            .roadmap-item,
+            .roadmap-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+
+                text-align: left;
+
+                padding-left: 35px;
+            }
+
+            .roadmap-item:nth-child(odd)
+            .roadmap-dot,
+            .roadmap-item:nth-child(even)
+            .roadmap-dot {
+                left: 1px;
+                right: auto;
+            }
+
+            .analytics-stat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .streak-days {
+                gap: 4px;
+            }
+
+            .day-box {
+                font-size: 8px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SPACE BACKGROUND
+========================================================= -->
+
+<div class="space-background">
+
+    <canvas id="starsCanvas"></canvas>
+
+    <div class="nebula nebula-one"></div>
+
+    <div class="nebula nebula-two"></div>
+
+    <div class="nebula nebula-three"></div>
+
+    <div class="shooting-star one"></div>
+
+    <div class="shooting-star two"></div>
+
+    <div class="shooting-star three"></div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+    <a
+        href="#home"
+        class="logo"
+    >
+
+        <div class="logo-icon">
+            🤖
+        </div>
+
+        AI <span>Learning</span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#courses">
+            Courses
+        </a>
+
+        <a href="#features">
+            Features
+        </a>
+
+        <a href="#analytics">
+            Progress
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+    </div>
+
+
+    <div class="nav-actions">
+
+        <a
+            href="login.html"
+            class="nav-btn"
+        >
+            Login
+        </a>
+
+        <a
+            href="register.html"
+            class="nav-btn primary"
+        >
+            Get Started
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main id="home">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content reveal">
+
+        <div class="eyebrow">
+
+            <span class="pulse-dot"></span>
+
+            Future-ready learning platform
+
+        </div>
+
+
+        <h1>
+
+            Learn.
+
+            <br>
+
+            <span class="gradient-text">
+                Build. Explore.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Master coding, Artificial Intelligence,
+            Data Science and modern technology through
+            an interactive learning experience designed
+            for the next generation of developers.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#courses"
+                class="hero-btn primary"
+            >
+                🚀 Start Learning
+            </a>
+
+
+            <a
+                href="#analytics"
+                class="hero-btn secondary"
+            >
+                📊 View Progress
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- SPACE VISUAL -->
+
+    <div
+        class="hero-visual reveal"
+        id="spaceVisual"
+    >
+
+        <div class="floating-code one">
+            const future = learn();
+        </div>
+
+        <div class="floating-code two">
+            AI.generate(ideas);
+        </div>
+
+        <div class="floating-code three">
+            data.analyse();
+        </div>
+
+
+        <div class="orbit">
+
+            <div class="planet one"></div>
+
+        </div>
+
+
+        <div class="orbit two">
+
+            <div class="planet two"></div>
+
+        </div>
+
+
+        <div class="orbit three">
+
+            <div class="planet three"></div>
+
+        </div>
+
+
+        <div class="cosmic-core"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COURSES
+========================================================= -->
+
+<section id="courses">
+
+    <div class="section-heading reveal">
+
+        <span>
+            Learning Universe
+        </span>
+
+        <h2>
+            Explore Our Courses
+        </h2>
+
+        <p>
+            Choose your path and start building real skills.
+        </p>
+
+    </div>
+
+
+    <div class="courses-grid">
+
+
+        <!-- PYTHON -->
+
+        <article
+            class="course-card reveal"
+            style="--glow:#5b8cff;"
+        >
+
+            <div class="course-icon">
+                🐍
+            </div>
+
+            <h3>
+                Python Programming
+            </h3>
+
+            <p>
+                Start from Python fundamentals and progress
+                towards advanced programming concepts.
+            </p>
+
+            <span class="course-status">
+                ● Available Now
+            </span>
+
+            <a
+                href="course.html"
+                class="course-btn"
+            >
+                Start Course →
+            </a>
+
+        </article>
+
+
+        <!-- WEB DEVELOPMENT -->
+
+        <article
+            class="course-card reveal"
+            style="--glow:#ff6b35;"
+        >
+
+            <div class="course-icon">
+                🌐
+            </div>
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+                Learn HTML, CSS, JavaScript and build
+                modern responsive websites.
+            </p>
+
+            <span class="course-status">
+                ● Available Now
+            </span>
+
+            <a
+                href="web-development.html"
+                class="course-btn"
+            >
+                Start Course →
+            </a>
+
+        </article>
+
+
+        <!-- AI -->
+
+        <article
+            class="course-card reveal"
+            style="--glow:#9b59ff;"
+        >
+
+            <div class="course-icon">
+                🤖
+            </div>
+
+            <h3>
+                Artificial Intelligence
+            </h3>
+
+            <p>
+                Explore AI fundamentals, machine learning,
+                neural networks, NLP and Generative AI.
+            </p>
+
+            <span class="course-status">
+                ● Available Now
+            </span>
+
+            <a
+                href="ai-course.html"
+                class="course-btn"
+            >
+                Start Course →
+            </a>
+
+        </article>
+
+
+        <!-- DATA SCIENCE -->
+
+        <article
+            class="course-card reveal"
+            style="--glow:#19d3ae;"
+        >
+
+            <div class="course-icon">
+                📊
+            </div>
+
+            <h3>
+                Data Science
+            </h3>
+
+            <p>
+                Learn data analysis, Python libraries,
+                visualization, statistics and machine learning.
+            </p>
+
+            <span class="course-status">
+                ● Available Now
+            </span>
+
+            <a
+                href="data-science.html"
+                class="course-btn"
+            >
+                Start Course →
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section id="features">
+
+    <div class="section-heading reveal">
+
+        <span>
+            Platform Features
+        </span>
+
+        <h2>
+            Built For Modern Learners
+        </h2>
+
+        <p>
+            Everything you need to learn, practise and grow.
+        </p>
+
+    </div>
+
+
+    <div class="features-grid">
+
+
+        <div class="feature-card reveal">
+
+            <div class="feature-icon">
+                📚
+            </div>
+
+            <h3>
+                Structured Courses
+            </h3>
+
+            <p>
+                Learn through carefully organised
+                beginner-to-advanced lessons.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card reveal">
+
+            <div class="feature-icon">
+                📈
+            </div>
+
+            <h3>
+                Progress Tracking
+            </h3>
+
+            <p>
+                Track completed lessons and monitor
+                your learning progress.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card reveal">
+
+            <div class="feature-icon">
+                🧠
+            </div>
+
+            <h3>
+                Interactive Quizzes
+            </h3>
+
+            <p>
+                Test your knowledge with lesson-based
+                quizzes and challenges.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card reveal">
+
+            <div class="feature-icon">
+                🏆
+            </div>
+
+            <h3>
+                Certificates
+            </h3>
+
+            <p>
+                Complete learning paths and unlock
+                your course achievement certificate.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LEARNING ANALYTICS
+========================================================= -->
+
+<section id="analytics">
+
+    <div class="section-heading reveal">
+
+        <span>
+            Student Dashboard Preview
+        </span>
+
+        <h2>
+            Your Learning Analytics
+        </h2>
+
+        <p>
+            See your learning progress across the platform.
+        </p>
+
+    </div>
+
+
+    <div class="analytics-wrapper">
+
+
+        <div class="analytics-main reveal">
+
+            <h3>
+                📊 Course Progress
+            </h3>
+
+            <p class="analytics-subtitle">
+                Your completed lessons are automatically reflected here.
+            </p>
+
+
+            <!-- Python -->
+
+            <div class="progress-item">
+
+                <div class="progress-header">
+
+                    <span>
+                        🐍 Python Programming
+                    </span>
+
+                    <span id="pythonProgressText">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-fill"
+                        id="pythonProgress"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Web -->
+
+            <div class="progress-item">
+
+                <div class="progress-header">
+
+                    <span>
+                        🌐 Web Development
+                    </span>
+
+                    <span id="webProgressText">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-fill"
+                        id="webProgress"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI -->
+
+            <div class="progress-item">
+
+                <div class="progress-header">
+
+                    <span>
+                        🤖 Artificial Intelligence
+                    </span>
+
+                    <span id="aiProgressText">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-fill"
+                        id="aiProgress"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Data Science -->
+
+            <div class="progress-item">
+
+                <div class="progress-header">
+
+                    <span>
+                        📊 Data Science
+                    </span>
+
+                    <span id="dataProgressText">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-fill"
+                        id="dataProgress"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="analytics-side reveal">
+
+            <h3>
+                🚀 Learning Overview
+            </h3>
+
+            <p class="analytics-subtitle">
+                Your current platform activity.
+            </p>
+
+
+            <div class="analytics-stat-grid">
+
+
+                <div class="analytics-stat">
+
+                    <strong id="totalLessons">
+                        0
+                    </strong>
+
+                    <span>
+                        Lessons Completed
+                    </span>
+
+                </div>
+
+
+                <div class="analytics-stat">
+
+                    <strong id="totalScore">
+                        0
+                    </strong>
+
+                    <span>
+                        Quiz Points
+                    </span>
+
+                </div>
+
+
+                <div class="analytics-stat">
+
+                    <strong id="completedCourses">
+                        0
+                    </strong>
+
+                    <span>
+                        Courses Completed
+                    </span>
+
+                </div>
+
+
+                <div class="analytics-stat">
+
+                    <strong id="overallProgress">
+                        0%
+                    </strong>
+
+                    <span>
+                        Overall Progress
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- STREAK -->
+
+            <div class="streak-box">
+
+                <div class="streak-title">
+
+                    <h3>
+                        🔥 Learning Streak
+                    </h3>
+
+                    <div
+                        class="streak-count"
+                        id="streakCount"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="streak-days">
+
+                    <div class="day-box" id="day1">
+                        M
+                    </div>
+
+                    <div class="day-box" id="day2">
+                        T
+                    </div>
+
+                    <div class="day-box" id="day3">
+                        W
+                    </div>
+
+                    <div class="day-box" id="day4">
+                        T
+                    </div>
+
+                    <div class="day-box" id="day5">
+                        F
+                    </div>
+
+                    <div class="day-box" id="day6">
+                        S
+                    </div>
+
+                    <div class="day-box" id="day7">
+                        S
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ACHIEVEMENTS
+========================================================= -->
+
+<section>
+
+    <div class="section-heading reveal">
+
+        <span>
+            Achievement Center
+        </span>
+
+        <h2>
+            🏆 Unlock Your Achievements
+        </h2>
+
+        <p>
+            Complete lessons and courses to unlock milestones.
+        </p>
+
+    </div>
+
+
+    <div class="achievements-grid">
+
+
+        <div
+            class="achievement-card reveal"
+            id="achievementStarter"
+        >
+
+            <div class="achievement-icon">
+                🌱
+            </div>
+
+            <h3>
+                First Step
+            </h3>
+
+            <p>
+                Complete your first lesson.
+            </p>
+
+            <span
+                class="achievement-status locked"
+                id="starterStatus"
+            >
+                🔒 Locked
+            </span>
+
+        </div>
+
+
+        <div
+            class="achievement-card reveal"
+            id="achievementLearner"
+        >
+
+            <div class="achievement-icon">
+                📚
+            </div>
+
+            <h3>
+                Fast Learner
+            </h3>
+
+            <p>
+                Complete 10 lessons.
+            </p>
+
+            <span
+                class="achievement-status locked"
+                id="learnerStatus"
+            >
+                🔒 Locked
+            </span>
+
+        </div>
+
+
+        <div
+            class="achievement-card reveal"
+            id="achievementQuiz"
+        >
+
+            <div class="achievement-icon">
+                🧠
+            </div>
+
+            <h3>
+                Quiz Master
+            </h3>
+
+            <p>
+                Earn at least 10 quiz points.
+            </p>
+
+            <span
+                class="achievement-status locked"
+                id="quizStatus"
+            >
+                🔒 Locked
+            </span>
+
+        </div>
+
+
+        <div
+            class="achievement-card reveal"
+            id="achievementGraduate"
+        >
+
+            <div class="achievement-icon">
+                🎓
+            </div>
+
+            <h3>
+                Course Graduate
+            </h3>
+
+            <p>
+                Complete an entire course.
+            </p>
+
+            <span
+                class="achievement-status locked"
+                id="graduateStatus"
+            >
+                🔒 Locked
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LEARNING ROADMAP
+========================================================= -->
+
+<section>
+
+    <div class="section-heading reveal">
+
+        <span>
+            Learning Journey
+        </span>
+
+        <h2>
+            🗺️ Your Learning Roadmap
+        </h2>
+
+        <p>
+            Follow a clear path from beginner to advanced skills.
+        </p>
+
+    </div>
+
+
+    <div class="roadmap">
+
+
+        <div class="roadmap-item reveal">
+
+            <div class="roadmap-dot"></div>
+
+            <div class="roadmap-content">
+
+                <small>
+                    Level 01
+                </small>
+
+                <h3>
+                    🌱 Beginner
+                </h3>
+
+                <p>
+                    Learn programming fundamentals,
+                    variables, operators, conditions and basic logic.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="roadmap-item reveal">
+
+            <div class="roadmap-dot"></div>
+
+            <div class="roadmap-content">
+
+                <small>
+                    Level 02
+                </small>
+
+                <h3>
+                    🚀 Intermediate
+                </h3>
+
+                <p>
+                    Build stronger programming skills,
+                    functions, data structures and practical projects.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="roadmap-item reveal">
+
+            <div class="roadmap-dot"></div>
+
+            <div class="roadmap-content">
+
+                <small>
+                    Level 03
+                </small>
+
+                <h3>
+                    🧠 Advanced
+                </h3>
+
+                <p>
+                    Explore Artificial Intelligence,
+                    Data Science, machine learning and advanced concepts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="roadmap-item reveal">
+
+            <div class="roadmap-dot"></div>
+
+            <div class="roadmap-content">
+
+                <small>
+                    Final Level
+                </small>
+
+                <h3>
+                    🏆 Professional
+                </h3>
+
+                <p>
+                    Complete challenges, earn certificates
+                    and build a strong technology portfolio.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CODING PLAYGROUND
+========================================================= -->
+
+<section>
+
+    <div class="section-heading reveal">
+
+        <span>
+            Practice Zone
+        </span>
+
+        <h2>
+            💻 Coding Playground
+        </h2>
+
+        <p>
+            Write JavaScript code directly inside the platform.
+        </p>
+
+    </div>
+
+
+    <div class="playground">
+
+
+        <div class="editor-box reveal">
+
+            <div class="editor-header">
+
+                <span>
+                    JavaScript Editor
+                </span>
+
+                <button
+                    class="run-btn"
+                    onclick="runCode()"
+                >
+                    ▶ Run Code
+                </button>
+
+            </div>
+
+
+            <textarea
+                id="codeEditor"
+                spellcheck="false"
+            >console.log("Hello, AI Learning Platform!");
+
+let student = "Jeshan";
+
+console.log("Welcome " + student);</textarea>
+
+        </div>
+
+
+        <div class="output-box reveal">
+
+            <div class="editor-header">
+
+                <span>
+                    Console Output
+                </span>
+
+                <button
+                    class="run-btn"
+                    onclick="clearOutput()"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div
+                class="output-content"
+                id="codeOutput"
+            >
+                Click "Run Code" to see the output.
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about">
+
+    <div class="about">
+
+
+        <div class="reveal">
+
+            <div
+                class="section-heading"
+                style="
+                    text-align:left;
+                    margin-bottom:20px;
+                "
+            >
+
+                <span>
+                    About Platform
+                </span>
+
+                <h2>
+                    Learning Beyond The Classroom
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                AI Learning Platform is designed to provide
+                students with a modern digital environment
+                for learning programming and emerging
+                technologies.
+
+            </p>
+
+
+            <p>
+
+                From Python and Web Development to Artificial
+                Intelligence and Data Science, learners can
+                follow structured courses and build practical
+                knowledge.
+
+            </p>
+
+        </div>
+
+
+        <div class="about-box reveal">
+
+            <h3>
+                🚀 Our Learning Universe
+            </h3>
+
+
+            <div class="stats">
+
+
+                <div class="stat">
+
+                    <strong>
+                        4+
+                    </strong>
+
+                    <span>
+                        Technology Courses
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        60+
+                    </strong>
+
+                    <span>
+                        Learning Lessons
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        100%
+                    </strong>
+
+                    <span>
+                        Interactive Learning
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        ∞
+                    </strong>
+
+                    <span>
+                        Learning Potential
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+
+        © 2026
+
+        <strong>
+            AI Learning Platform
+        </strong>
+
+        · Learn. Build. Explore.
+
+    </p>
+
+
+    <p style="margin-top:8px;">
+
+        Prepared By
+        <strong>
+            Jeshan
+        </strong>
+
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   STARFIELD
+========================================================= */
+
+const canvas =
+    document.getElementById(
+        "starsCanvas"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+let width;
+let height;
+
+let stars = [];
+
+const mouse = {
+    x: 0,
+    y: 0
+};
+
+
+function resizeCanvas() {
+
+    width =
+        window.innerWidth;
+
+    height =
+        window.innerHeight;
+
+    canvas.width =
+        width;
+
+    canvas.height =
+        height;
+
+    createStars();
+
+}
+
+
+function createStars() {
+
+    stars = [];
+
+    const count =
+        Math.min(
+            500,
+            Math.floor(
+                (width * height) /
+                7000
+            )
+        );
+
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        stars.push({
+
+            x:
+                Math.random() *
+                width,
+
+            y:
+                Math.random() *
+                height,
+
+            size:
+                Math.random() *
+                1.8 +
+                0.3,
+
+            speed:
+                Math.random() *
+                0.35 +
+                0.05,
+
+            alpha:
+                Math.random() *
+                0.7 +
+                0.2,
+
+            twinkle:
+                Math.random() *
+                0.02 +
+                0.005,
+
+            depth:
+                Math.random() *
+                1.5 +
+                0.5
+
+        });
+
+    }
+
+}
+
+
+function animateStars() {
+
+    ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    stars.forEach(
+        star => {
+
+            star.y +=
+                star.speed;
+
+
+            star.alpha +=
+                Math.sin(
+                    Date.now() *
+                    star.twinkle
+                ) *
+                0.003;
+
+
+            if (
+                star.y >
+                height
+            ) {
+
+                star.y = -5;
+
+                star.x =
+                    Math.random() *
+                    width;
+
+            }
+
+
+            const parallaxX =
+                mouse.x *
+                star.depth *
+                0.012;
+
+
+            const parallaxY =
+                mouse.y *
+                star.depth *
+                0.012;
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+
+                star.x +
+                parallaxX,
+
+                star.y +
+                parallaxY,
+
+                star.size,
+
+                0,
+
+                Math.PI * 2
+
+            );
+
+
+            ctx.fillStyle =
+                `rgba(
+                    255,
+                    255,
+                    255,
+                    ${Math.max(
+                        0.1,
+                        Math.min(
+                            star.alpha,
+                            1
+                        )
+                    )}
+                )`;
+
+
+            ctx.fill();
+
+        }
+    );
+
+
+    requestAnimationFrame(
+        animateStars
+    );
+
+}
+
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+window.addEventListener(
+    "mousemove",
+    event => {
+
+        mouse.x =
+            event.clientX -
+            width / 2;
+
+        mouse.y =
+            event.clientY -
+            height / 2;
+
+    }
+);
+
+
+resizeCanvas();
+
+animateStars();
+
+
+/* =========================================================
+   COURSE CARD 3D TILT
+========================================================= */
+
+const cards =
+    document.querySelectorAll(
+        ".course-card"
+    );
+
+
+cards.forEach(
+    card => {
+
+        card.addEventListener(
+            "mousemove",
+            event => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateX =
+                    (
+                        (y - centerY) /
+                        centerY
+                    ) * -4;
+
+
+                const rotateY =
+                    (
+                        (x - centerX) /
+                        centerX
+                    ) * 4;
+
+
+                card.style.transform =
+                    `
+                    translateY(-12px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    scale(1.01)
+                    `;
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style.transform =
+                    "";
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   HERO PARALLAX
+========================================================= */
+
+const visual =
+    document.getElementById(
+        "spaceVisual"
+    );
+
+
+window.addEventListener(
+    "mousemove",
+    event => {
+
+        if (!visual) {
+            return;
+        }
+
+
+        const x =
+            (
+                event.clientX /
+                window.innerWidth
+            ) - 0.5;
+
+
+        const y =
+            (
+                event.clientY /
+                window.innerHeight
+            ) - 0.5;
+
+
+        visual.style.transform =
+            `
+            translate(
+                ${x * 10}px,
+                ${y * 10}px
+            )
+            `;
+
+    }
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(
+    element => {
+
+        revealObserver.observe(
+            element
+        );
+
+    }
+);
+
+
+/* =========================================================
+   LOCAL STORAGE HELPERS
+========================================================= */
+
+function getArray(key) {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(key) ||
+            "[]"
+        );
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+function getObject(key) {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(key) ||
+            "{}"
+        );
+
+    } catch (error) {
+
+        return {};
+
+    }
+
+}
+
+
+/* =========================================================
+   COURSE PROGRESS
+========================================================= */
+
+function calculateProgress(
+    completedKey,
+    totalLessons
+) {
+
+    const completed =
+        getArray(completedKey);
+
+    const unique =
+        [...new Set(completed)];
+
+    return Math.min(
+        100,
+        Math.round(
+            (
+                unique.length /
+                totalLessons
+            ) * 100
+        )
+    );
+
+}
+
+
+function updateProgressBar(
+    barId,
+    textId,
+    percentage
+) {
+
+    const bar =
+        document.getElementById(
+            barId
+        );
+
+    const text =
+        document.getElementById(
+            textId
+        );
+
+
+    if (bar) {
+
+        setTimeout(
+            () => {
+
+                bar.style.width =
+                    percentage +
+                    "%";
+
+            },
+            300
+        );
+
+    }
+
+
+    if (text) {
+
+        text.textContent =
+            percentage +
+            "%";
+
+    }
+
+}
+
+
+/* =========================================================
+   ANALYTICS
+========================================================= */
+
+function updateAnalytics() {
+
+    const python =
+        calculateProgress(
+            "pythonCompletedLessonIds",
+            15
+        );
+
+
+    const web =
+        calculateProgress(
+            "webCompletedLessonIds",
+            15
+        );
+
+
+    const ai =
+        calculateProgress(
+            "aiCompletedLessonIds",
+            15
+        );
+
+
+    const dataScience =
+        calculateProgress(
+            "dataScienceCompletedLessonIds",
+            15
+        );
+
+
+    updateProgressBar(
+        "pythonProgress",
+        "pythonProgressText",
+        python
+    );
+
+
+    updateProgressBar(
+        "webProgress",
+        "webProgressText",
+        web
+    );
+
+
+    updateProgressBar(
+        "aiProgress",
+        "aiProgressText",
+        ai
+    );
+
+
+    updateProgressBar(
+        "dataProgress",
+        "dataProgressText",
+        dataScience
+    );
+
+
+    const pythonLessons =
+        getArray(
+            "pythonCompletedLessonIds"
+        ).length;
+
+
+    const webLessons =
+        getArray(
+            "webCompletedLessonIds"
+        ).length;
+
+
+    const aiLessons =
+        getArray(
+            "aiCompletedLessonIds"
+        ).length;
+
+
+    const dataLessons =
+        getArray(
+            "dataScienceCompletedLessonIds"
+        ).length;
+
+
+    const totalLessons =
+        pythonLessons +
+        webLessons +
+        aiLessons +
+        dataLessons;
+
+
+    const pythonScores =
+        getObject(
+            "pythonLessonScores"
+        );
+
+
+    const aiScores =
+        getObject(
+            "aiLessonScores"
+        );
+
+
+    const dataScores =
+        getObject(
+            "dataScienceLessonScores"
+        );
+
+
+    const webScores =
+        getObject(
+            "webLessonScores"
+        );
+
+
+    let totalScore = 0;
+
+
+    [
+        pythonScores,
+        aiScores,
+        dataScores,
+        webScores
+    ].forEach(
+        scoreObject => {
+
+            Object.values(
+                scoreObject
+            ).forEach(
+                score => {
+
+                    totalScore +=
+                        Number(score) || 0;
+
+                }
+            );
+
+        }
+    );
+
+
+    const completedCourses =
+        [
+            python,
+            web,
+            ai,
+            dataScience
+        ].filter(
+            progress =>
+                progress === 100
+        ).length;
+
+
+    const overall =
+        Math.round(
+            (
+                python +
+                web +
+                ai +
+                dataScience
+            ) / 4
+        );
+
+
+    document.getElementById(
+        "totalLessons"
+    ).textContent =
+        totalLessons;
+
+
+    document.getElementById(
+        "totalScore"
+    ).textContent =
+        totalScore;
+
+
+    document.getElementById(
+        "completedCourses"
+    ).textContent =
+        completedCourses;
+
+
+    document.getElementById(
+        "overallProgress"
+    ).textContent =
+        overall + "%";
+
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+function setAchievement(
+    statusId,
+    unlocked
+) {
+
+    const element =
+        document.getElementById(
+            statusId
+        );
+
+
+    if (!element) {
+        return;
+    }
+
+
+    if (unlocked) {
+
+        element.textContent =
+            "✓ Unlocked";
+
+        element.classList.remove(
+            "locked"
+        );
+
+    } else {
+
+        element.textContent =
+            "🔒 Locked";
+
+        element.classList.add(
+            "locked"
+        );
+
+    }
+
+}
+
+
+function updateAchievements() {
+
+    const pythonLessons =
+        getArray(
+            "pythonCompletedLessonIds"
+        ).length;
+
+
+    const webLessons =
+        getArray(
+            "webCompletedLessonIds"
+        ).length;
+
+
+    const aiLessons =
+        getArray(
+            "aiCompletedLessonIds"
+        ).length;
+
+
+    const dataLessons =
+        getArray(
+            "dataScienceCompletedLessonIds"
+        ).length;
+
+
+    const totalLessons =
+        pythonLessons +
+        webLessons +
+        aiLessons +
+        dataLessons;
+
+
+    let totalScore = 0;
+
+
+    const scoreKeys = [
+        "pythonLessonScores",
+        "webLessonScores",
+        "aiLessonScores",
+        "dataScienceLessonScores"
+    ];
+
+
+    scoreKeys.forEach(
+        key => {
+
+            const scores =
+                getObject(key);
+
+
+            Object.values(
+                scores
+            ).forEach(
+                score => {
+
+                    totalScore +=
+                        Number(score) || 0;
+
+                }
+            );
+
+        }
+    );
+
+
+    const coursesCompleted =
+        [
+            pythonLessons >= 15,
+            webLessons >= 15,
+            aiLessons >= 15,
+            dataLessons >= 15
+        ].filter(Boolean).length;
+
+
+    setAchievement(
+        "starterStatus",
+        totalLessons >= 1
+    );
+
+
+    setAchievement(
+        "learnerStatus",
+        totalLessons >= 10
+    );
+
+
+    setAchievement(
+        "quizStatus",
+        totalScore >= 10
+    );
+
+
+    setAchievement(
+        "graduateStatus",
+        coursesCompleted >= 1
+    );
+
+}
+
+
+/* =========================================================
+   LEARNING STREAK
+========================================================= */
+
+function updateStreak() {
+
+    const today =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+    let streak =
+        Number(
+            localStorage.getItem(
+                "learningStreak"
+            ) || "0"
+        );
+
+
+    const lastVisit =
+        localStorage.getItem(
+            "lastLearningVisit"
+        );
+
+
+    if (
+        lastVisit !== today
+    ) {
+
+        streak++;
+
+        localStorage.setItem(
+            "learningStreak",
+            streak
+        );
+
+        localStorage.setItem(
+            "lastLearningVisit",
+            today
+        );
+
+    }
+
+
+    document.getElementById(
+        "streakCount"
+    ).textContent =
+        streak;
+
+
+    const activeDays =
+        Math.min(
+            streak,
+            7
+        );
+
+
+    for (
+        let i = 1;
+        i <= 7;
+        i++
+    ) {
+
+        const day =
+            document.getElementById(
+                "day" + i
+            );
+
+
+        if (!day) {
+            continue;
+        }
+
+
+        if (
+            i <= activeDays
+        ) {
+
+            day.classList.add(
+                "active"
+            );
+
+        } else {
+
+            day.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   CODING PLAYGROUND
+========================================================= */
+
+function runCode() {
+
+    const code =
+        document.getElementById(
+            "codeEditor"
+        ).value;
+
+
+    const output =
+        document.getElementById(
+            "codeOutput"
+        );
+
+
+    const logs = [];
+
+
+    const originalLog =
+        console.log;
+
+
+    console.log =
+        function (...args) {
+
+            logs.push(
+                args
+                    .map(
+                        value =>
+                            typeof value ===
+                            "object"
+                            ? JSON.stringify(
+                                value
+                            )
+                            : String(value)
+                    )
+                    .join(" ")
+            );
+
+        };
+
+
+    try {
+
+        Function(code)();
+
+
+        output.textContent =
+            logs.length > 0
+                ? logs.join("\n")
+                : "Code executed successfully.";
+
+    } catch (error) {
+
+        output.textContent =
+            "Error: " +
+            error.message;
+
+    } finally {
+
+        console.log =
+            originalLog;
+
+    }
+
+}
+
+
+function clearOutput() {
+
+    document.getElementById(
+        "codeOutput"
+    ).textContent =
+        "Output cleared.";
+
+}
+
+
+/* =========================================================
+   INITIALISE PLATFORM
+========================================================= */
+
+updateAnalytics();
+
+updateAchievements();
+
+updateStreak();
+
+
+/* =========================================================
+   REFRESH ANALYTICS WHEN PAGE RETURNS
+========================================================= */
+
+window.addEventListener(
+    "focus",
+    () => {
+
+        updateAnalytics();
+
+        updateAchievements();
+
+        updateStreak();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
